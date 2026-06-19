@@ -1,4 +1,4 @@
-.w3-theme-l5 {color:#000 !important; background-color:#f0f0f0 !important}
+.w3-theme-l5 {color:#000 !important; background-color:#f7f4f1 !important}
 .w3-theme-l4 {color:#000 !important; background-color:#cccccc !important}
 .w3-theme-l3 {color:#fff !important; background-color:#999999 !important}
 .w3-theme-l2 {color:#fff !important; background-color:#666666 !important}
@@ -39,6 +39,21 @@
 .w3-text-teal, .w3-hover-text-teal:hover { color: #F5C4C4 !important; }
 .w3-teal, .w3-hover-teal:hover { background-color: #F5C4C4 !important; color: #000 !important; }
 .w3-border-teal, .w3-hover-border-teal:hover { border-color: #F5C4C4 !important; }
+
+/* Card and section polish */
+.w3-card, .w3-card-2, .w3-card-4 {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08), 0 1px 4px 0 rgba(0,0,0,0.06) !important;
+  overflow: hidden;
+}
+.w3-card:hover, .w3-card-2:hover, .w3-card-4:hover {
+  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.12), 0 2px 8px 0 rgba(0,0,0,0.08) !important;
+  transition: box-shadow 0.2s ease;
+}
+.w3-container.w3-padding-64 {
+  padding-top: 80px !important;
+  padding-bottom: 80px !important;
+}
 
 .publications {
   max-width: 860px;
