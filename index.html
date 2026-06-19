@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MICA - Music Interation and Computational Arts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/theme.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body id="myPage">
+
+<!-- Sidebar on click -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
+    <i class="fa fa-remove"></i>
+  </a>
+  <a href="#" class="w3-bar-item w3-button">Link 1</a>
+  <a href="#" class="w3-bar-item w3-button">Link 2</a>
+  <a href="#" class="w3-bar-item w3-button">Link 3</a>
+  <a href="#" class="w3-bar-item w3-button">Link 4</a>
+  <a href="#" class="w3-bar-item w3-button">Link 5</a>
+</nav>
+
+<!-- Navbar -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-sand"><i class="fa"></i>MICA Lab</a>
+  <a href="#joinus" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Join Us!</a>
+  <a href="#video" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Outside-In</a>
+  <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
+  <a href="#partners" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Partners</a>
+  <a href="#publications" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
+  <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+  <!--    <div class="w3-dropdown-hover w3-hide-small">
+    <button class="w3-button" title="Notifications">Dropdown <i class="fa fa-caret-down"></i></button>     
+    <div class="w3-dropdown-content w3-card-4 w3-bar-block">
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+      <a href="#" class="w3-bar-item w3-button">Link</a>
+    </div>
+  </div>
+  <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" title="Search"><i class="fa fa-search"></i></a>-->
+ </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#joinus" class="w3-bar-item w3-button">Join Us!</a>
+    <a href="#video" class="w3-bar-item w3-button">Outside-In</a>
+    <a href="#team" class="w3-bar-item w3-button">People</a>
+    <a href="#partners" class="w3-bar-item w3-button">Partners</a>
+    <a href="#publications" class="w3-bar-item w3-button">Publications</a>
+    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+  </div>
+</div>
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img src="/images/banner.jpg" alt="boat" style="width:100%;min-height:100px;max-height:200px;margin-top: 35px;">
+  <!--<div class="w3-container w3-display-bottomleft w3-margin-bottom">  
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-xlarge w3-theme w3-hover-teal" title="Go To W3.CSS">LEARN W3.CSS</button>
+  </div> -->
+</div>
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top">
+    <header class="w3-container w3-teal w3-display-container"> 
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-teal w3-display-topright"><i class="fa fa-remove"></i></span>
+      <h4>Oh snap! We just showed you a modal..</h4>
+      <h5>Because we can <i class="fa fa-smile-o"></i></h5>
+    </header>
+    <div class="w3-container">
+      <p>Cool huh? Ok, enough teasing around..</p>
+      <p>Go to our <a class="w3-text-teal" href="/w3css/default.asp">W3.CSS Tutorial</a> to learn more!</p>
+    </div>
+    <footer class="w3-container w3-teal">
+      <p>Modal footer</p>
+    </footer>
+  </div>
+</div>
+
+<!-- Joinus Container -->
+<div class="w3-container w3-row-padding w3-padding-64" id="joinus">
+  <div class="w3-third">
+    <h2>Join the Lab!</h2>
+    <p>The Music Interaction and Computational Arts (MICA) Lab is an inclusive research group that develops and evaluates novel technologies for creative expression. The lab is located in <a href="https://blogs.uwe.ac.uk/research-business-innovation/uwe-bristol-win-funding-to-deliver-the-bridge-a-creative-studio-for-physical-meta-production/">The Bridge</a>: a cutting-edge creative technology facility funded by the Arts and Humanities Research Council (AHRC), the West of England Combined Authority (WECA) and UWE, Bristol. We will be recruiting a research fellow in Digital Music Interaction and and a fully funded PhD in 2025. We are always on the lookout for new projects, collaborations and opportunities. Please contact tom.mitchell@uwe.ac.uk</p>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-white">
+      <a href="https://ce0164li.webitrent.com/ce0164li_webrecruitment/wrd/run/ETREC179GF.open?WVID=8433573cTb&VACANCY_ID=349107QtXl"><img src="/images/jobs/outsidein.jpg" alt="An image with the text a 'new outside in approach' and an illustration a hand interacting what an unusual looking interface with a wearable sensor with arrows indicating motion" style="width:100%"></a>
+      <div class="w3-container">
+        <h4><b>Research Fellow in Digital Music Interaction</b></h3>
+        <p>With the UKRI funded Outside Interactions Project</p>
+        <p>More info soon, recruiting 2025...</p>
+        <!-- <p><a href="/jobs/jobra1.html" target="_blank">HTML Version</a></p> -->
+        <!-- <p>Large Print (<a href="/jobs/jobra1.docx">docx</a>, <a href="/jobs/jobra1.pdf">pdf</a>)</p> -->
+        <!-- <p><a href="https://teamaxe.youcanbook.me/" target="_blank">Book a meeting with Tom</a></p> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-white">
+    <img src="/images/jobs/phds.png" alt="Image showing an arrangement of acoustic and digital musical instruemtns" style="width:100%">
+    <div class="w3-container">
+      <h4><b>Funded PhD Studentship</b></h3>
+      <!-- <p>See <a href="https://www.uwe.ac.uk/research/postgraduate-research-study/how-to-apply/studentship-opportunities" target="_blank">here</a> for October 2024 studentships</p> -->
+      <p>More info soon, recruiting 2025...</p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Video Container -->
+<div class="w3-container w3-padding-64 w3-center w3-theme-l5" id="video">
+     <h2>UKRI Future Leaders Fellowship: <i>Outside-In</i>teractions</h2>
+  <div class="video-container">
+    <iframe width="1434" height="683" src="https://www.youtube.com/embed/8oR49gTTFco" title="Outside Interactions Introcution" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <div class="w3-row-padding" style="margin-top: 15px">
+    <div class="w3-half">
+    <h4 style="text-align:right;">Video Audio Description:</h4>
+    </div>
+    <div class="w3-half">
+      <audio controls>
+      <source src="/audio/outside_interactions_audio_description.wav" type="audio/wav">
+      Your browser does not support the audio element.
+    </audio>
+    </div>
+  </div>
+  <p>The Outside Interactions project is supported by a UKRI Future Leaders Fellowship and will explore a novel approach to human computer interaction along with new methods for co-designing digital musical instruments (DMIs) with non-technical and physically impaired musicians. The project takes a disruptive and inclusive approach that that will reshape the fundamental practice of DMI design, inviting broader participation in the development of new musical instruments and future visions of musicianship.</p>
+
+  <p>Motion capture and gestural interaction technologies have shifted the locus of interaction away from physical objects and onto the body, realising human movement as the interface for performing music. The development of musical objects and gestural music interaction are often considered and pursued separately. By focusing on musical objects, instrument development is often framed as a technical challenge assuming normative players and overlooking the diversity of musicians, audiences, and their environments. Gestural music interaction has shown great potential for music performance and accessibility; however, it neglects the significant role of tactile feedback in music training and the development of virtuosic performance. </p>
+
+  <p>The Outside Interactions project will take a holistic approach, coupling gestural interaction and physical prototyping, departing from the conventional practice of embedding sensing technologies within an instrument and relocating the technology onto the body, sensing player interactions using wearable devices on the wrist and hand. A radical switch in both technical and design approach that opens innovative new research directions for low-cost, rapidly produced musical instruments, which can be designed to have any shape, scale or structure. Crucially, this provides new ways for people to participate in the rapid co-design of novel, customised musical instruments that are tailored to their unique artistic identity and access requirements.  </p>
+</div>
+
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>People</h2>
+  <div class="w3-row"><br>
+    <div class="w3-quarter tom-fifth">
+      <a href="https://people.uwe.ac.uk/Person/TomMitchell" target="_blank"><img src="/images/profiles/tom.jpg" alt=" Portrait picture of  Tom Mitchell" style="width:71%" class="w3-circle w3-hover-opacity"><p><b>Tom Mitchell</b><br>Professor of Audio and<br> Music Interaction</p></a>
+    </div>
+    
+    <div class="w3-quarter tom-fifth">
+      <a href="https://scholar.google.co.uk/citations?user=pVoC0_cAAAAJ&hl=en" target="_blank"><img src="/images/profiles/seb.jpeg" alt="Portrait picture of Seb Madgwick" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Seb Madgwick</b></a><a href="https://x-io.co.uk/" target="_blank"> <br>Co-Investigator<br>x-io Technologies</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+       <a href="https://dompotts.com" target="_blank"><img src="/images/profiles/dom-pots.jpg" alt="Portrait picture of Dom Pottsk" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Dom Potts</b></a><a href="https://scholar.google.com/citations?user=-YPeCboAAAAJ&hl=en" target="_blank"> <br>Research Fellow in <br>Digital Music Interaction</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="#joinus"><img src="/images/profiles/anon.png" alt="Portrait picture of an anonymous figure" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Recruiting '25!</b><br>Research Fellow in Digital Music  Interaction</p></a>
+    </div>
+  </div>
+  
+  <h2>PhD Students</h2>
+  <div class="w3-row"><br>
+    <div class="w3-quarter tom-fifth">
+      <a href="https://stretchi.org/" target="_blank"><img src="/images/profiles/hugh.png" alt="Portrait picture of Hugh Aynsley" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Hugh Aynsley</b><br>PhD Student<br>2021  -</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/jasmine-butt-9590b377/?originalSubdomain=uk" target="_blank"><img src="/images/profiles/jas.jpeg" alt="Portrait picture of Jasmine Butt" style="width:75%" class="w3-circle  w3-hover-opacity"><p><b>Jasmine Butt</b><br>PhD Student<br>2022 -</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://people.uwe.ac.uk/person/lukechild" target="_blank"><img src="/images/profiles/luke.jpeg" alt=" Portrait picture of Luke Child" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Luke Child</b><br>PhD Student<br>2022 -</p></a>
+    </div>
+
+        <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/maisie-palmer/" target="_blank"><img src="/images/profiles/maisie.png" alt="Portrait picture of Maisie Palmer" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Maisie Palmer</b><br>PhD Student<br>2024 -</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="#joinus"><img src="/images/profiles/anon.png" alt="Portrait picture of an anonymous figure" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Recruiting soon!</b><br>Funded PhD<br>Studentships</p></a>
+    </div>
+  </div>
+  
+  <h2>Alumni</h2>
+  <div class="w3-row"><br>
+    <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/dom-brown-ux"><img src="/images/profiles/dom.jpeg" alt="Portrait picture of  Dom Brown" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Dom Brown</b><br>PhD Student<br>2015 - 2020  </p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/samuel-hunt-42646853"><img src="/images/profiles/sam.jpeg" alt="Portrait picture of Sam Hunt" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Sam Hunt</b><br>PhD Student<br> 2016 - 2022</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/joseph-bolarinwa-ph-d-a7108a65"><img src="/images/profiles/joseph.jpeg" alt= "Portrait picture of Joseph Bolarinwa" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Joseph Bolarinwa</b><br  >PhD Student<br>2016 - 2022</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://people.uwe.ac.uk/Person/NathanRenney"><img src="/images/profiles/nathan.jpeg" alt="Portrait  picture of Nathan Renney" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Nathan Renney</b><br>PhD  Student<br>2017 - 2022</p></a>
+    </div>
+  
+    <div class="w3-quarter tom-fifth">
+      <a href="https://www.linkedin.com/in/harri-renney-971770155"><img src="/images/profiles/harri.jpeg" alt="Portrait picture of Harri Renney" style="width:75%" class="w3-circle w3-hover-opacity"><p><b>Harri Renney</b><br>  PhD Student<br>2018 - 2022</p></a>
+    </div>
+  </div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-container w3-row-padding w3-padding-64 w3-center" id="partners">
+  <h2>Supporters and Partners</h2>
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.uwe.ac.uk/"><img src="/images/partners/uwe.png" alt="UWE Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://x-io.co.uk/"><img src="/images/partners/xio.png" alt="x-io Technologies Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.ukri.org/what-we-do/developing-people-and-skills/future-leaders-fellowships/"><img src="/images/partners/ukri.jpeg" alt="UKRI Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://mimugloves.com/"><img src="/images/partners/mimu.png" alt="MiMU Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.watershed.co.uk/"><img src="/images/partners/watershed.png" alt="Watershed Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://billyandandy.co.uk/"><img src="/images/partners/banda.jpg" alt="Billy and Andy's Music School Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+  
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.drakemusic.org/"><img src="/images/partners/drake.png" alt="Drake Music Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.watershed.co.uk/studio/"><img src="/images/partners/pmstudio.png" alt="Pervasive Media Studio Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+  <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.ukri.org/councils/ahrc/"><img src="/images/partners/ahrc.png" alt="AHRC Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+
+    <div class="w3-quarter tom-fifth">
+    <div class="w3-white">
+      <a href="https://www.westofengland-ca.gov.uk/"><img src="/images/partners/weca.png" alt="WECA Logo" style="width:75%" class="w3-hover-opacity"></a>
+    </div>
+  </div>
+</div>
+
+<!-- Container -->
+<!--
+<div class="w3-container" style="position:relative">
+  <a onclick="w3_open()" class="w3-button w3-xlarge w3-circle w3-teal"
+  style="position:absolute;top:-28px;right:24px">+</a>
+</div>
+-->
+
+<!-- Pricing Row -->
+<!-- 
+<div class="w3-row-padding w3-center w3-padding-64" id="pricing">
+    <h2>PRICING</h2>
+    <p>Choose a pricing plan that fits your needs.</p><br>
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Basic</p>
+        </li>
+        <li class="w3-padding-16"><b>10GB</b> Storage</li>
+        <li class="w3-padding-16"><b>10</b> Emails</li>
+        <li class="w3-padding-16"><b>10</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 10</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme-l2">
+          <p class="w3-xlarge">Pro</p>
+        </li>
+        <li class="w3-padding-16"><b>25GB</b> Storage</li>
+        <li class="w3-padding-16"><b>25</b> Emails</li>
+        <li class="w3-padding-16"><b>25</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 25</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover-shadow">
+        <li class="w3-theme">
+          <p class="w3-xlarge">Premium</p>
+        </li>
+        <li class="w3-padding-16"><b>50GB</b> Storage</li>
+        <li class="w3-padding-16"><b>50</b> Emails</li>
+        <li class="w3-padding-16"><b>50</b> Domains</li>
+        <li class="w3-padding-16"><b>Endless</b> Support</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide"><i class="fa fa-usd"></i> 50</h2>
+          <span class="w3-opacity">per month</span>
+        </li>
+        <li class="w3-theme-l5 w3-padding-24">
+          <button class="w3-button w3-teal w3-padding-large"><i class="fa fa-check"></i> Sign Up</button>
+        </li>
+      </ul>
+    </div>
+</div>
+-->
+
+<!-- Publications Container -->
+<div class="w3-container w3-center w3-padding-64" id="publications">
+  <h2>Publications</h2>
+  <table class="publications">
+      <tr>
+        <td><a target="_blank" href="/publications/051/aes2023.pdf"><img src="/publications/051/aes2023.png" alt="image"></a></td>
+        <td><a target="_blank" href="/publications/051/aes2023.pdf">
+        Child, L., Mitchell, T., & Ford, N. (2023) A systematic review of reverberation and accessibility for B/blind users in virtual environments, In: <i>Proceedings of AES 2023 International Conference on Spatial and Immersive Audio</i></a></td>
+        <td><a target="_blank" href="http://www.aes.org/e-lib/browse.cfm?elib=22168"><i class="fas fa-external-link-alt"></i><a target="_blank" href="/publications/051/aes2023.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+       <tr>
+        <td><a target="_blank" href="/publications/050/vamhri.pdf"><img src="/publications/050/vamhri.png" alt="image"></a></td>
+        <td><a target="_blank" href="/publications/050/vamhri.pdf">
+        Simmons, J., Bown, A., Bremner, P., McIntosh, V., and Mitchell, T. J. (2023) Hear here: Sonification as a design strategy for robot teleoperation using virtual reality, In: <i>Proceedings of VAM-HRI Virtual, Augmented, and Mixed-Reality for Human-Robot Interactions at HRI</i></a></td>
+        <td><a target="_blank" href="/publications/050/vamhri.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="/publications/049/nime2023.pdf"><img src="/publications/049/nime2023.png" alt="image"></a></td>
+        <td><a target="_blank" href="/publications/049/nime2023.pdf">
+        Aynsley, H., Mitchell, T. J., and Meckin, D. (2023) Participatory conceptual design of accessible digital musical instruments using generative AI, In: <i>Proceedings of New Interfaces for Musical Expression</i></a></td>
+        <td><a target="_blank" href="/publications/049/nime2023.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/048/fronteers2022.pdf"><img src="publications/048/fronteers2022.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/048/fronteers2022.pdf">
+        Bremner, P., Mitchell, T. J., and McIntosh, V. (2022) The impact of data sonification in virtual reality robot teleoperation, In: <i>Frontiers in Virtual Reality</i>, 3, Article 904820</a></td>
+        <td><a target="_blank" href="https://doi.org/10.3389/frvir.2022.904720"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/048/fronteers2022.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+       <tr>
+        <td><a target="_blank" href="publications/047/chi2022.pdf"><img src="publications/047/chi2022.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/047/chi2022.pdf">
+        Renney, N., Renney, H., Mitchell, T. J., & Gaster, B. R. (2022) Studying how digital luthiers choose their tools, In: <i>Proceedings of the CHI Conference on Human Factors in Computing Systems</i></a></td>
+        <td><a target="_blank" href="https://doi.org/10.1145/3491102.3517656"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/047/chi2022.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+       <tr>
+        <td><a target="_blank" href="publications/046/nime2022.pdf"><img src="publications/046/nime2022.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/046/nime2022.pdf">
+        Renney, H., Willemsen, S., Gaster, B. R., and Mitchell, T. J. (2022) HyperModels - A framework for GPU accelerated physical modelling sound synthesis, In: <i>Proceedings of New Interfaces for Musical Expression</i></a></td>
+        <td><a target="_blank" href="https://doi.org/10.21428/92fbeb44.98a4210a"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/046/nime2022.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/045/concomp.pdf"><img src="publications/045/concomp.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/045/concomp.pdf">
+        Renney, H., Gaster, B., and Mitchell, T. J. (2022) Survival of the synthesis—GPU accelerating evolutionary sound matching, In: <i>Concurrency and Computation: Practice and Experience</i> 34(10), Article e6824 </a></td>
+        <td><a target="_blank" href="https://doi.org/10.1002/cpe.6824"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/045/concomp.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/044/fronteers2021.pdf"><img src="publications/044/fronteers2021.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/044/fronteers2021.pdf">
+        Bolarinwa, J., Eimontaite, I., Mitchell, T., Dogramadzi, S., and Caleb-Solly, P. (2021) Assessing the Role of Gaze Tracking in Optimizing Humans-In-The-Loop Telerobotic Operation Using Multimodal Feedback, In: <i>Frontiers in Robotics and AI</i> 8, Article 578596 </a></td>
+        <td><a target="_blank" href="https://doi.org/10.3389/frobt.2021.578596"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/044/fronteers2021.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/043/am2020a.pdf"><img src="publications/043/am2020a.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/043/am2020a.pdf">
+        Brown, D., Nash, C., and Mitchell, T. J. (2020) Was that me?: Exploring the effects of error in gestural digital musical instruments, In: <i>Proceedings of the of the 15th International Conference on Audio Mostly</i></a></td>
+        <td>
+          <a target="_blank" href="https://www.youtube.com/watch?v=-eEIE_9MSn8"><i class="fab fa-youtube"></i></a>
+          <a target="_blank" href="https://doi.org/10.1145/3411109.3411137"><i class="fas fa-external-link-alt"></i>
+          <a target="_blank" href="publications/043/am2020a.pdf"><i class="fas fa-file-pdf"></i></a>
+        </td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/042/am2020.pdf"><img src="publications/042/am2020.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/042/am2020.pdf">
+        Mitchell, T. J., Jones, A. J., O’Connor, M. B., Wonnacott, M. D., Glowacki, D. R., and Hyde, J. (2020) Towards molecular musical instruments: Interactive sonifications of 17-alanine, graphene and carbon nanotubes, In: <i>Proceedings of the of the 15th International Conference on Audio Mostly</i></a></td>
+        <td><a target="_blank" href="https://doi.org/10.1145/3411109.3411143"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/042/am2020.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/041/nime2020a.pdf"><img src="publications/041/nime2020a.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/041/nime2020a.pdf">
+        Renney, H., Gaster, B. R., and Mitchell, T. J. (2020) There and Back Again: The Practicality of GPU Accelerated Digital Audio., In: <i>Proceedings of the 20th New Interfaces for Musical Expression</i></a></td>
+        <td><a target="_blank" href="https://www.nime.org/proc/nime20_39/"><i class="fas fa-external-link-alt"></i><a target="_blank" href="publications/041/nime2020a.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/040/nime2020.pdf"><img src="publications/040/nime2020.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/040/nime2020.pdf">
+        Hunt, S. J, Mitchell, T. J. and Nash, C. P. (2020) Composing computer generated music, an observational study using IGME: the Interactive Generative Music Environment., In: <i>The Proceedings of NIME 2020</i></a></td>
+        <td><a target="_blank" href="https://www.nime.org/proc/nime20_12"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/040/nime2020.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/039/inmusic2019.pdf"><img src="publications/039/inmusic2019.jpg" alt="image"></a></td>
+        <td><a target="_blank" href="publications/039/inmusic2019.pdf">
+        Hunt, S. J, Mitchell, T. J. and Nash, C. P. (2019) Automating algorithmic representations of musical structure using IGME: The Interactive Generative Music Environment, In: <i>Innovation In Music 2019</i></a></td>
+        <td><a target="_blank" href="publications/039/inmusic2019.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/038/rose2019.pdf"><img src="publications/038/rose2019.jpg" alt="image"></a></td>
+        <td><a target="_blank" href="publications/038/rose2019.pdf">
+        Bolarinwa, J., Eimontaite, I., Dogramadzi, S., Mitchell, T., & Caleb-Solly, P. (2019) The use of different feedback modalities and verbal collaboration in tele-robotic assistance, In: <i>Proceedings of the IEEE International Symposium on Robotic and Sensors Environments (ROSE)</i></a></td>
+        <td><a target="_blank" href="https://doi.org/10.1109/ROSE.2019.8790412"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/038/rose2019.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+        <td><a target="_blank" href="publications/037/icad2019.pdf"><img src="publications/037/icad2019.png" alt="image"></a></td>
+        <td><a target="_blank" href="publications/037/icad2019.pdf">
+        Mitchell, Thomas J., Thom, J., Pountney, M., Hyde, J. (2019) The alchemy of chaos: A sound art sonification of a year of Tourette’s episodes, In: <i>Proceedings of the International Conference on Auditory Display</i></a></td>
+        <td><a target="_blank" href="http://hdl.handle.net/1853/61514"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/037/icad2019.pdf"><i class="fas fa-file-pdf"></i></a></td>
+      </tr>
+      <tr>
+      <td><a target="_blank" href="publications/036/jcp2019.pdf"><img src="publications/036/jcp2019.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/036/jcp2019.pdf">
+        O'Connor, M. B., Bennie, S. J., Deeks, H. M., Jamieson-Binnie, A.; Jones, A. J.; Shannon, R. J.; Walters, R.; Mitchell, T. J.; Mulholland, A. J.; Glowacki, D. R. (2019) Interactive molecular dynamics in virtual reality from quantum chemistry to drug binding: An open-source multi-person framework <i>Journal of Chemical Physics</i>, 150(22), ISSN: 1089-7690, DOI: 10.1080/14626268.2018.1510841 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.1080/14626268.2018.1510841"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/036/jcp2019.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/035/iwocl2019.pdf"><img src="publications/035/iwocl2019.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/035/iwocl2019.pdf">
+        Renney, H., Gaster, B. R., & Mitchell, T. (2019) OpenCL vs: Accelerated finite-difference digital synthesis, In: <i>Proceedings of the International Workshop on OpenCL</i> DOI: 10.1145/3318170.3318172</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1145/3318170.3318172"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/035/iwocl2019.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/034/dc2018.pdf"><img src="publications/034/dc2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/034/dc2018.pdf">
+        Brown, D., Nash, C. and Mitchell, T. (2018) Simple mappings, expressive movement: A qualitative investigation into the end-user mapping design of experienced mid-air musicians, <i>Digital Creativity</i>, 29:2-3, ISSN: 1462-6268, DOI: 10.1080/14626268.2018.1510841 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.1080/14626268.2018.1510841"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/034/dc2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/033/ifc2018.pdf"><img src="publications/033/ifc2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/033/ifc2018.pdf">
+        Gaster, B. R., Renney, N. and Mitchell, T. (2018) Outside the block syndicate: Translating Faust's algebra of blocks to the arrows framework, In: <i>International Faust Conference</i></a></td>
+      <td><a target="_blank" href="http://www.ifc18.uni-mainz.de/"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/033/ifc2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/032/moco2018.pdf"><img src="publications/032/moco2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/032/moco2018.pdf">
+        Brown, D., Nash, C. and Mitchell, T. (2018) Understanding user-defined mapping design in mid-air musical performance, In: <i>International Conference on Movement Computing</i> DOI: 10.1145/3212721.3212810</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1145/3212721.3212810"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/032/moco2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/031/icad2018.pdf"><img src="publications/031/icad2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/031/icad2018.pdf">
+        Arbon, R. E., Jones, A. J., Bratholm, L. A., Mitchell, T. and Glowacki, D. R. (2018) Sonifying stochastic walks on biomolecular energy landscapes, In: <i>International Conference On Auditory Display</i></a></td>
+      <td><a target="_blank" href="http://hdl.handle.net/1853/60093"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/031/icad2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/030/tenor2018.pdf"><img src="publications/030/tenor2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/030/tenor2018.pdf">
+        Hunt, S., Mitchell, T. and Nash, C. (2018) A cognitive dimensions approach for the design of an interactive generative score editor, In: <i>International Conference on Technologies for Music Notation and Representation</i></a></td>
+      <td><a target="_blank" href="http://www.tenor-conference.org/proceedings.html#2018"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/030/tenor2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/029/am2018.pdf"><img src="publications/029/am2018.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/029/am2018.pdf">
+        Renney, N., Gaster, B. and Mitchell, T. (2018) Return to temperament (In digital systems), In: <i>Audio Mostly</i></a></td>
+      <td><a target="_blank" href="publications/029/am2018.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/028/csmc2017.pdf"><img src="publications/028/csmc2017.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/028/csmc2017.pdf">
+        Hunt, S., Mitchell, T. and Nash, C. (2017) Thoughts on interactive generative music composition, In: <i>Computer Simulation of Musical Creativity</i></a></td>
+      <td><a target="_blank" href="http://www.tenor-conference.org/proceedings.html#2018"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/028/csmc2017.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/027/nime2017.pdf"><img src="publications/027/nime2017.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/027/nime2017.pdf">
+        Brown, D., Nash, C. and Mitchell, T. (2017) A user experience review of music interaction evaluations, In: <i>International Conference on New Interfaces for Musical Expression</i> DOI: 10.5281/zenodo.1176286</a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1176286"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/027/nime2017.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/026/tenor2017.pdf"><img src="publications/026/tenor2017.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/026/tenor2017.pdf">
+        Hunt, S., Mitchell, T. and Nash, C. (2017) How can music visualisation techniques reveal different perspectives on musical structure?, In: <i>International Conference on Technologies for Music Notation and Representation</i></a></td>
+      <td><a target="_blank" href="http://www.tenor-conference.org/proceedings.html#2017"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/026/tenor2017.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://www.pushturnmove.com"><img src="publications/025/ptm2017.png" alt="image"></a></td>
+      <td>
+        van den Berg, C., Heap, I., Stark, A. and Mitchell, T. (2017) Expressive gestural personality, In: <i>Push Turn Move: Interface Design in Electronic Music</i>, ISBN: 978-87-9999995-0-7</td>
+      <td><a target="_blank" href="https://www.pushturnmove.com"><i class="fas fa-external-link-alt"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/024/smc2016.pdf"><img src="publications/024/smc2016.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/024/smc2016.pdf">
+        Brown, D., Nash, C. and Mitchell, T. (2016) GestureChords: Transparency in gesturally controlled digital musical instruments through iconicity and conceptual metaphor, In: <i>International Conference on Sound and Music Computing</i>, DOI: 10.5281/zenodo.851193</a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.851193"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/024/smc2016.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/023/nime2016.pdf"><img src="publications/023/nime2016.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/023/nime2016.pdf">
+        Brown, D., Renney, N., Stark, A., Nash, C. and Mitchell, T. (2016) Leimu: Gloveless music interaction using a wrist mounted leap motion, In: <i>International Conference On New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1176000</a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1176000"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/023/nime2016.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/022/chi2016.pdf"><img src="publications/022/chi2016.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/022/chi2016.pdf">
+        Mitchell, T., Bennett, P., Tew, P., Davies, E. and Madgwick, S. (2016) Tangible interfaces for interactive evolutionary computation, In: <i>ACM Conference Human Factors in Computing Systems, Extended Abstracts</i>, DOI: 10.1145/2851581.2892405</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1145/2851581.2892405"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/022/chi2016.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/021/evomusart2016.pdf"><img src="publications/021/evomusart2016.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/021/evomusart2016.pdf">
+        Davies, E., Tew, P., Glowacki, D., Smith, J. and Mitchell, T. (2016) Evolving atomic aesthetics and dynamics, In: <i>International Conference on Evolutionary and Biologically Inspired Music, Sound, Art and Design</i>, DOI: 10.1007/978-3-540-32003-6_54 (Nominated for best paper)</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1007/978-3-319-31008-4_2"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/021/evomusart2016.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/020/Leonardo2016.pdf"><img src="publications/020/Leonardo2016.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/020/Leonardo2016.pdf">
+        Mitchell, T., Hyde, J., Tew, P. and Glowacki, D. (2016) danceroom Spectroscopy: At the frontiers of physics, performance, interactive art and technology, In: <i>Leonardo</i> Leonardo, 49 (2), DOI: 10.1162/LEON_a_00924 (Cover article)</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1162/LEON_a_00924"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/020/Leonardo2016.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/019/icmc2015.pdf"><img src="publications/019/icmc2015.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/019/icmc2015.pdf">
+        Madgwick, S. O. H., Mitchell, T. J., Barreto, C. and Freed, A. (2015) Simple synchronisation for open sound control, In: <i>International Computer Music Conference.</i></a> (Nominated for best paper)</td>
+      <td><a target="_blank" href="http://hdl.handle.net/2027/spo.bbp2372.2015.045"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/019/icmc2015.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/018/ga2014.pdf"><img src="publications/018/ga2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/018/ga2014.pdf">
+        Hyde, J. I., Mitchell, T. J., Tew, P. and Glowacki, D. R. (2014) Molecular music: Repurposing a mixed quantum-classical atomic dynamics model as an audiovisual instrument, In: <i>Generative Art Conference</i></a></td>
+      <td><a target="_blank" href="http://www.artscience-ebookshop.com/ga2014_book.htm"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/018/ga2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/017/icmc2014.pdf"><img src="publications/017/icmc2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/017/icmc2014.pdf">
+        Rutter, E. K., Nash, C. and Mitchell, T. J. (2014) Turnector: Tangible control widgets for capacitive touchscreen devices, In: <i>International Computer Music Conference (ICMC) and the 11th Sound & Music Computing Conference</i></a></td>
+      <td><a target="_blank" href="http://hdl.handle.net/2027/spo.bbp2372.2014.123"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/017/icmc2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+     <tr>
+      <td><a target="_blank" href="publications/016/nime2014.pdf"><img src="publications/016/nime2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/016/nime2014.pdf">
+        Mitchell, T. J., Madgwick, S., Rankine, S., Hilton, G., Freed, A. and Nix, A. (2014) Making the most of Wi-Fi: Optimisations for robust wireless live music performance, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178875 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1178875"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/016/nime2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/015/nime2014.pdf"><img src="publications/015/nime2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/015/nime2014.pdf">
+        Place, A., Lacey, L. and Mitchell, T. (2014) AlphaSphere: From prototype to product, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178903 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1178903"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/015/nime2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/014/nime2014.pdf"><img src="publications/014/nime2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/014/nime2014.pdf">
+        Serafin, S., Trento, S., Grani, F., Perner-Wilson, H., Madgwick, S. and Mitchell, T. J. (2014) Controlling physically based virtual musical instruments using the gloves, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178937 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1178937"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/014/nime2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/013/Faraday2014.pdf"><img src="publications/013/Faraday2014.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/013/Faraday2014.pdf">
+        Glowacki, D. R., O'Connor, M., Calabro, G., Price, J., Tew, P., Mitchell, T., Hyde, J., Tew, D., Coughtrie, D. J. and McIntosh-Smith, S. (2014) A GPU-accelerated immersive audiovisual framework for interaction with molecular dynamics using consumer depth sensors, <i>Faraday Discussions</i> 169, ISSN 1359-6640 DOI: 10.1039/C4FD00008K </a></td>
+      <td><a target="_blank" href="https://doi.org/10.1039/C4FD00008K"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/013/Faraday2014.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications//012/molecularAesthetics2013.pdf"><img src="publications//012/molecularAesthetics2013.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications//012/molecularAesthetics2013.pdf">
+        Glowacki, D., Tew, P., Hyde, J., Kriefman, L., Mitchell, T., Price, J. and McIntosh-Smith, S. (2013) Using human energy fields to sculpt real-time molecular dynamics. <i>Molecular Aesthetics</i>. MIT Press, ISBN 9780262018784</a></td>
+      <td><a target="_blank" href="https://mitpress.mit.edu/books/molecular-aesthetics"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href=" publications//012/molecularAesthetics2013.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/011/smc2013.pdf"><img src="publications/011/smc2013.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/011/smc2013.pdf">
+        Madgwick, S. and Mitchell, T. J. (2013) x-OSC: A versatile wireless I/O device for creative/music applications, In: <i>International Conference on Sound and Music Computing</i>, DOI: 10.5281/zenodo.850439 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.850439"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/011/smc2013.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/010/nime2013.pdf"><img src="publications/010/nime2013.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/010/nime2013.pdf">
+        Place, A., Lacey, L. and Mitchell, T. (2013) AlphaSphere, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178642 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1178642"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/010/nime2013.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="https://www.youtube.com/watch?v=zwF7OO9aN14"><img src="publications/009/ukmac2012.png" alt="image"></a></td>
+      <td><a target="_blank" href="https://www.youtube.com/watch?v=zwF7OO9aN14">
+        Glowacki, D., Tew, P., Mitchell, T. J., Price, J. and McIntosh-Smith, S. (2012) danceroom Spectroscopy: Interactive quantum molecular dynamics accelerated on GPU architectures using OpenCL <i>UK Many-Core developer conference</i></a></td>
+      <td><a target="_blank" href="https://www.youtube.com/watch?v=zwF7OO9aN14"><i class="fab fa-youtube"></i></a>
+          <a target="_blank" href="publications/009/ukmac2012.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/008/softcomputing2012.pdf"><img src="publications/008/softcomputing2012.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/008/softcomputing2012.pdf">
+        Mitchell, T. J. (2012) Automated evolutionary synthesis matching: Advanced evolutionary algorithms for difficult sound matching problems, <i>Soft Computing</i> 16 (12), DOI: 10.1007/s00500-012-0873-x </a></td>
+      <td><a target="_blank" href="https://doi.org/10.1007/s00500-012-0873-x"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/008/softcomputing2012.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/007/nime2012published.pdf"><img src="publications/007/nime2012.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/007/nime2012published.pdf">
+        Mitchell, T. J., Madgwick, S. and Heap, I. (2012) Musical interaction with hand posture and orientation: A toolbox of gestural control mechanisms, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178111 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1180543"><i class="fas fa-external-link-alt"></i></a>
+          <a target="_blank" href="publications/007/nime2012published.pdf"><i class="fas fa-file-pdf"></i></a>
+          <a target="_blank" href="publications/007/nime2012review.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/006/nime2011.pdf"><img src="publications/006/nime2011.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/006/nime2011.pdf">
+        Mitchell, T. J. and Heap I. (2011) SoundGrasp: A gestural interface for the performance of live music, In: <i>International Conference on New Interfaces for Musical Expression</i>, DOI: 10.5281/zenodo.1178111 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.5281/zenodo.1178111"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/006/nime2011.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications//005/tmitchell-phd.pdf"><img src="publications//005/tmitchell-phd.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications//005/tmitchell-phd.pdf">
+        Mitchell, T. J. (2010) <i>An exploration of evolutionary computation applied to frequency modulation audio synthesis parameter optimisation</i>. Ph.D, University of the West of England</a></td>
+      <td><a target="_blank" href="http://eprints.uwe.ac.uk/18265"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications//005/tmitchell-phd.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/004/icmla2007.pdf"><img src="publications/004/icmla2007.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/004/icmla2007.pdf">
+        Mitchell, T. J., Creasey, D. P. (2007) Evolutionary sound matching: A test methodology and comparative study, In: <i>Proceedings of the International Conference on Machine Learning and Applications</i>, DOI: 10.1109/ICMLA.2007.34 </a></td>
+      <td><a target="_blank" href="https://doi.org/10.1109/ICMLA.2007.34"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/004/icmla2007.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/003/acdm2006.pdf"><img src="publications/003/acdm2006.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/003/acdm2006.pdf">
+        Mitchell, T. J., Pipe, A.G. (2006) A comparison of evolution-strategy based methods for frequency modulated musical tone timbre matching. In: <i>Proceedings of the International Conference on Adaptive Computing in Design and Manufacture</i>. Institute for People-centred Computation (IP-CC), ISBN 978-0955288500 </a></td>
+      <td><a target="_blank" href="http://eprints.uwe.ac.uk/13990/"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/003/acdm2006.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/002/aes2005.pdf"><img src="publications/002/aes2005.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/002/aes2005.pdf">
+        Mitchell1, T.J., Sullivan, J.C.W. (2005) Frequency modulation tone matching using a fuzzy clustering evolution strategy. In: <i>Proceedings of the Audio Engineering Society 118th Convention</i>. AES</a></td>
+      <td><a target="_blank" href="http://www.aes.org/e-lib/browse.cfm?elib=13082"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/002/aes2005.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+    <tr>
+      <td><a target="_blank" href="publications/001/evomusart2005.pdf"><img src="publications/001/evomusart2005.png" alt="image"></a></td>
+      <td><a target="_blank" href="publications/001/evomusart2005.pdf">
+        Mitchell T.J., Pipe A.G. (2005) Convergence Synthesis of Dynamic Frequency Modulation Tones Using an Evolution Strategy. In: <i>Applications of Evolutionary Computing</i>. EvoMUSART 2005. <i>Lecture Notes in Computer Science</i>, vol 3449. DOI: 10.1007/978-3-540-32003-6_54</a></td>
+      <td><a target="_blank" href="https://doi.org/10.1007/978-3-540-32003-6_54"><i class="fas fa-external-link-alt"></i></a><a target="_blank" href="publications/001/evomusart2005.pdf"><i class="fas fa-file-pdf"></i></a></td>
+    </tr>
+  </table>
+</div>
+
+<!-- Contact Container -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+      <div class="w3-padding-16"><span class="w3-xlarge w3-bottombar">Contact</span></div>
+        <p>MICA Lab, UWE, Bristol<br>Frenchay Campus, Coldharbour Lane<br>Stoke Gifford BS16 1QY</p>
+        <p><i class="fa fa-map-marker w3-xlarge"></i>  Bristol, UK</p>
+        <p><i class="fa-solid fa-envelope w3-xlarge"></i>  tom.mitchell@uwe.ac.uk</p>
+      </div>
+
+    <!--
+    <div class="w3-col m7">
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+      <div class="w3-section">      
+        <label>Name</label>
+        <input class="w3-input" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">      
+        <label>Email</label>
+        <input class="w3-input" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">      
+        <label>Message</label>
+        <input class="w3-input" type="text" name="Message" required>
+      </div>  
+      <input class="w3-check" type="checkbox" checked name="Like">
+      <label>I Like it!</label>
+      <button type="submit" class="w3-button w3-right w3-theme">Send</button>
+      </form>
+    </div>
+    -->
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="/images/bridge.png" class="w3-image w3-greyscale-min" style="width:100%;">
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+ <!-- <h4>Follow Us</h4> -->
+ <!-- <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Facebook"><i class="fa fa-facebook"></i></a> -->
+  <a class="w3-button w3-large" href="https://twitter.com/teamaxe" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+ <!-- <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>-->
+ <!-- <a class="w3-button w3-large w3-teal" href="javascript:void(0)" title="Google +"><i class="fa fa-instagram"></i></a>-->
+  <a class="w3-button w3-large w3-hide-small" href="https://www.linkedin.com/in/thomas-mitchell-72172013/" title="Linkedin"><i class="fa-brands fa-linkedin"></i></a>
+
+  <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>   
+    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+</footer>
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
+</body>
+</html>
