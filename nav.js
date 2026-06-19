@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
       <a href="/" class="w3-bar-item w3-button">Join Us!</a>
       <a href="/outside-in/" class="w3-bar-item w3-button">Outside-In</a>
       <a href="/people/" class="w3-bar-item w3-button">People</a>
-      <a href="/partners/" class="w3-bar-item w3-button">Partners</a>
       <a href="/publications/" class="w3-bar-item w3-button">Publications</a>
       <a href="/contact/" class="w3-bar-item w3-button">Contact</a>
     </nav>
@@ -19,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Join Us!</a>
         <a href="/outside-in/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Outside-In</a>
         <a href="/people/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
-        <a href="/partners/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Partners</a>
         <a href="/publications/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
         <a href="/contact/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
       </div>
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <a href="/" class="w3-bar-item w3-button">Join Us!</a>
         <a href="/outside-in/" class="w3-bar-item w3-button">Outside-In</a>
         <a href="/people/" class="w3-bar-item w3-button">People</a>
-        <a href="/partners/" class="w3-bar-item w3-button">Partners</a>
         <a href="/publications/" class="w3-bar-item w3-button">Publications</a>
         <a href="/contact/" class="w3-bar-item w3-button">Contact</a>
       </div>
