@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="w3-top">
       <div class="w3-bar w3-theme-d2 w3-left-align">
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button"><img src="/images/micalogos/white.svg" alt="MICA Lab" style="height:24px;vertical-align:middle;"></a>
+        <a href="/" class="w3-bar-item w3-button"><img src="/images/micalogos/colour.svg" alt="MICA Lab" style="height:24px;vertical-align:middle;"></a>
         <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Join Us!</a>
         <a href="/outside-in/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Outside-In</a>
         <a href="/people/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link.querySelector('img')) return;
     const href = link.getAttribute('href');
     if (href === path || (href !== '/' && path.startsWith(href))) {
-      link.classList.add('w3-sand');
+      link.classList.add('nav-active');
     }
   });
 });
