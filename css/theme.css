@@ -21,7 +21,7 @@
 .w3-hover-text-theme:hover {color:#000000 !important}
 .w3-hover-border-theme:hover {border-color:#000000 !important}
 
-.w3-quarter.tom-fifth { float:none;display:inline-block; width:19% }
+.w3-quarter.tom-fifth { float:none;display:inline-block; width:19%; vertical-align:top; }
 
 .page-wrapper {
   max-width: 1400px;
