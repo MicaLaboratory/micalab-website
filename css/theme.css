@@ -23,6 +23,11 @@
 
 .w3-quarter.tom-fifth { float:none;display:inline-block; width:19% }
 
+.page-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
 .publications {
   max-width: 860px;
   padding-left: 1em;
