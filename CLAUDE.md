@@ -8,39 +8,24 @@ Static site for the Music Interaction and Computational Arts (MICA) Lab, UWE Bri
 - `outside-in/`, `people/`, `publications/`, `contact/`: one `index.html` each.
 - `nav.js` / `footer.js`: inject the shared top nav and footer into `#site-nav` / `#site-footer` on `DOMContentLoaded`. Every page includes both in `<head>`. `nav.js` adds `.nav-active` to the link for the current path. Mobile menu = `#navDemo` toggled by `openNav()`.
 - `css/style.css`: vendored W3.CSS 4.15 (don't edit). `css/theme.css`: site theme and custom classes:
-  - `.page-hero` / `.page-hero-inner` / `.page-hero-sub` (title-slide header; `.page-hero-home` variant with `.hero-logo`)
-  - `.site-footer` (built by `footer.js`), `.image-strip`, `.panel-blush`
-  - `.page-wrapper`, `.nav-active`
-  - `.publications` (the pubs table)
-  - `.w3-quarter.tom-fifth` (5-per-row grid used on People and Contact partners; 2 per row under 600px)
-  - CSS is linked with `?v=4` for cache busting. Bump it on all 5 pages when the CSS changes.
-- External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Atkinson Hyperlegible + Questrial.
+  - `w3-theme-*` remapped to black/grey, `w3-teal` remapped to pink `#F5C4C4` (`--accent`, taken from the colour logo)
+  - `body` has `images/micalogos/wave.svg` as a fixed full-page background
+  - `.page-wrapper` (max 1400px), `.nav-active`, `.publications` (the pubs table)
+  - `.w3-quarter.tom-fifth` (5-per-row grid used on People and Contact partners)
+  - CSS is linked with `?v=3` for cache busting. Bump it on all 5 pages when the CSS changes.
+- External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Atkinson Hyperlegible.
 - `images/`:
-  - `banner.jpg`: project collage, now only used as the strip under the home hero
+  - `banner.jpg`: project collage, used as the header image on every page
   - `bridge.png`: sketch of The Bridge building, on the Contact page
   - `profiles/` (people), `partners/` (logos), `jobs/` (job card images)
-  - `micalogos/`: SVG logos; `colour.svg` (blush) is used in the nav, the footer and the home hero
-  - `waves/`: web-optimised waveforms from the slide deck (`title-slide`, `quotation`, `card`, `section-divider`)
-  - `logos/`: UWE, UKRI and Bridge Studios logos for the footer
-- `slideAssets/`: the source slide template (`mica-lab-template.pptx`) and its SVGs. Reference material only: **don't deploy it**, and it's not linked from the site. The originals in `mica-lab-svgs/01-slide-waveforms` are ~900 KB each; shrink them before web use (RDP-simplify the polylines and round to 1 dp, which gets them to ~10–30 KB).
-
-## Design system (from the slide template)
-
-- Colours (CSS custom properties in `theme.css`):
-  - `--charcoal #3D3B3E`: nav, hero, footer, headings
-  - `--grey #5E5759`: body text
-  - `--rose #A8505A`: links/accents on light backgrounds, and the 56px rule under every `h2`
-  - `--pink #F5C4C4`: accents on dark backgrounds, waveforms, active nav item, portrait rings
-  - `--blush #FCEDED`: panels, card bodies
-- Type: headings `"Century Gothic", "Questrial"` (Century Gothic matches the slides; Questrial is the web fallback). Body stays Atkinson Hyperlegible for accessibility; the slides use Corbel, which isn't a web font.
-- W3 `w3-theme-*` / `w3-teal` classes are remapped onto this palette, so existing markup picks it up.
-- Take only colours, fonts, images, style and logos from the slide template. **Never reuse its text**: slogans, headings and figures in the deck are placeholders, not real lab copy.
+  - `micalogos/`: SVG logos; `colour.svg` is used in the nav, `wave.svg` is the page background
+- `slideAssets/`: a slide template (`mica-lab-template.pptx`) and its SVGs. Reference material only: **don't deploy it**, and it's not linked from the site. Never reuse its text: slogans, headings and figures in the deck are placeholders, not real lab copy.
 - `audio/`: audio description for the Outside-In video.
 - `jobs/jobra1.html|.docx`: old job advert, not linked from anywhere.
 
 ## Page conventions
 
-Every page copies the same `<head>` and skeleton: `body#myPage` > `#site-nav` > `<header class="page-hero">` (h1 + `.page-hero-sub`; clears the fixed nav via `--nav-height`) > `.page-wrapper` (content `w3-container`s, max 1400px) > `#site-footer` (outside the wrapper so it's full-width). The hero h1 is the page title, so content sections start at `h2`. When adding a page, copy an existing one and add the link in **both** nav blocks in `nav.js` (desktop bar and `#navDemo`).
+Every page copies the same `<head>` and skeleton: `body#myPage` > `#site-nav` > `.page-wrapper` > banner header (`w3-display-container` with `banner.jpg`) > content `w3-container`s, each section starting with an `h2` > `#site-footer`. When adding a page, copy an existing one and add the link in **both** nav blocks in `nav.js` (desktop bar and `#navDemo`).
 
 ## Publications
 
@@ -65,11 +50,11 @@ Every page copies the same `<head>` and skeleton: `body#myPage` > `#site-nav` > 
 
 The lab is inclusive and accessibility-focused, so give every new `<img>` meaningful alt text (or `alt=""` only when it duplicates adjacent text).
 
-## Current state (as of 2026-10-04)
+## Current state (as of 2026-11-14)
 
 - Recruiting two Research Fellows on the UKRI Outside Interactions project: "Digital Musical Instrument Design" and "Algorithmic Sensing for Music". The "Apply now" links (UWE webitrent) appear in `index.html` job cards **and** as "Recruiting Now!" entries on `people/index.html`. When the posts close or get filled, update both pages and the "We are currently recruiting two research fellows!" sentence in `index.html`. The webitrent pages are rendered with JS, so curl can't check whether a vacancy is open; ask the user.
 - Footer social links: X (`x.com/teamaxe`), LinkedIn, Bluesky.
-- Site was restyled to match the slide template on 2026-10-04 (charcoal title-slide heroes, pink waveforms, blush panels, charcoal footer with partner logos).
+- A restyle to match the slide template (charcoal heroes, waveforms, blush panels) was tried on 2026-10-04 and reverted on 2026-11-14 at the user's request. It's in git history as commit `c5d6b2e`.
 
 ## Checking local links
 
