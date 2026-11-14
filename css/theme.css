@@ -1,98 +1,273 @@
-.w3-theme-l5 {color:#000 !important; background-color:#f7f4f1 !important}
-.w3-theme-l4 {color:#000 !important; background-color:#cccccc !important}
-.w3-theme-l3 {color:#fff !important; background-color:#999999 !important}
-.w3-theme-l2 {color:#fff !important; background-color:#666666 !important}
-.w3-theme-l1 {color:#fff !important; background-color:#333333 !important}
-.w3-theme-d1 {color:#fff !important; background-color:#000000 !important}
-.w3-theme-d2 {color:#fff !important; background-color:#000000 !important}
-.w3-theme-d3 {color:#fff !important; background-color:#000000 !important}
-.w3-theme-d4 {color:#fff !important; background-color:#000000 !important}
-.w3-theme-d5 {color:#fff !important; background-color:#000000 !important}
+/* MICA Lab theme — matches the slide template in slideAssets/ (mica-lab-template.pptx).
+   Palette:  charcoal #3D3B3E (dark grounds, headings) · grey #5E5759 (body text)
+             rose #A8505A (accent on light) · pink #F5C4C4 (accent on dark, waveforms)
+             blush #FCEDED (panels)
+   Type:     headings Century Gothic (Questrial web fallback) · body Atkinson Hyperlegible */
 
-.w3-theme-light {color:#000 !important; background-color:#f0f0f0 !important}
-.w3-theme-dark {color:#fff !important; background-color:#000000 !important}
-.w3-theme-action {color:#fff !important; background-color:#000000 !important}
+:root {
+  --charcoal: #3D3B3E;
+  --grey: #5E5759;
+  --rose: #A8505A;
+  --pink: #F5C4C4;
+  --blush: #FCEDED;
+  --white: #FFFFFF;
+  --font-heading: "Century Gothic", "Questrial", "Avenir Next", "Futura", sans-serif;
+  --font-body: "Atkinson Hyperlegible", "Corbel", "Segoe UI", sans-serif;
+  --nav-height: 48px;
+}
 
-.w3-theme {color:#fff !important; background-color:#000000 !important}
-.w3-text-theme {color:#000000 !important}
-.w3-border-theme {border-color:#000000 !important}
+/* ---------- W3.CSS theme mapping ---------- */
+.w3-theme-l5 {color:var(--charcoal) !important; background-color:var(--blush) !important}
+.w3-theme-l4 {color:var(--charcoal) !important; background-color:var(--pink) !important}
+.w3-theme-l3, .w3-theme-l2, .w3-theme-l1 {color:#fff !important; background-color:var(--grey) !important}
+.w3-theme-d1, .w3-theme-d2, .w3-theme-d3, .w3-theme-d4, .w3-theme-d5 {color:#fff !important; background-color:var(--charcoal) !important}
+.w3-theme-light {color:var(--charcoal) !important; background-color:var(--blush) !important}
+.w3-theme-dark, .w3-theme-action, .w3-theme {color:#fff !important; background-color:var(--charcoal) !important}
+.w3-text-theme {color:var(--charcoal) !important}
+.w3-border-theme {border-color:var(--charcoal) !important}
+.w3-hover-theme:hover {color:#fff !important; background-color:var(--charcoal) !important}
+.w3-hover-text-theme:hover {color:var(--charcoal) !important}
+.w3-hover-border-theme:hover {border-color:var(--charcoal) !important}
 
-.w3-hover-theme:hover {color:#fff !important; background-color:#000000 !important}
-.w3-hover-text-theme:hover {color:#000000 !important}
-.w3-hover-border-theme:hover {border-color:#000000 !important}
+.w3-text-teal, .w3-hover-text-teal:hover { color: var(--rose) !important; }
+.w3-teal, .w3-hover-teal:hover { background-color: var(--pink) !important; color: var(--charcoal) !important; }
+.w3-border-teal, .w3-hover-border-teal:hover { border-color: var(--pink) !important; }
 
-.w3-quarter.tom-fifth { float:none;display:inline-block; width:19%; vertical-align:top; }
+/* ---------- Base type ---------- */
+html, body {
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--grey);
+  background: var(--white);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--charcoal);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+h4 b, h3 b { font-weight: 700; }
+
+/* Section headings get the short rose rule used under slide titles */
+.page-wrapper h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 0.4em;
+  background: var(--rose);
+  border-radius: 2px;
+}
+.page-wrapper .w3-center h2::after,
+.page-wrapper h2.w3-center::after { margin-left: auto; margin-right: auto; }
+
+a { color: var(--rose); }
+a:hover { color: var(--charcoal); }
+a:focus-visible, .w3-button:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 2px;
+}
 
 .page-wrapper {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-body {
-  background-image: url('/images/micalogos/wave.svg?v=3');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  background-attachment: fixed;
-}
+.w3-quarter.tom-fifth { float:none;display:inline-block; width:19%; vertical-align:top; }
 
-/* Pink accent colour — taken from the MICA Lab colour logo (#F5C4C4) */
-:root { --accent: #F5C4C4; }
+/* ---------- Navigation ---------- */
+#site-nav .w3-bar {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+#site-nav .w3-bar .w3-bar-item {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+#site-nav .w3-button:hover {
+  background-color: var(--grey) !important;
+  color: #fff !important;
+}
+#site-nav .nav-logo img { height: 24px; vertical-align: middle; }
 
 .nav-active {
-  color: #F5C4C4 !important;
-  box-shadow: inset 0 -3px 0 0 #F5C4C4;
+  color: var(--pink) !important;
+  box-shadow: inset 0 -3px 0 0 var(--pink);
 }
 
-.w3-text-teal, .w3-hover-text-teal:hover { color: #F5C4C4 !important; }
-.w3-teal, .w3-hover-teal:hover { background-color: #F5C4C4 !important; color: #000 !important; }
-.w3-border-teal, .w3-hover-border-teal:hover { border-color: #F5C4C4 !important; }
+/* ---------- Page hero (title-slide style) ---------- */
+.page-hero {
+  position: relative;
+  margin-top: var(--nav-height);
+  background-color: var(--charcoal);
+  background-image: url('/images/waves/title-slide.svg');
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto 100%;
+  color: #fff;
+  overflow: hidden;
+}
+.page-hero-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 72px 32px 80px;
+}
+.page-hero h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  line-height: 1.15;
+  margin: 0 0 0.35em;
+  max-width: 16em;
+}
+.page-hero-sub {
+  color: var(--pink);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  margin: 0;
+  max-width: 34em;
+}
+.page-hero-home .page-hero-inner { padding-top: 96px; padding-bottom: 112px; }
+.page-hero-home .hero-logo { height: 52px; margin-bottom: 40px; display: block; }
 
-/* Card and section polish */
+@media (max-width: 600px) {
+  .page-hero { background-size: auto 55%; background-position: right -60px bottom; }
+  .w3-quarter.tom-fifth { width: 48%; }
+  .publications { padding-left: 0; width: 100%; font-size: 14px; }
+  .publications td:first-child { display: none; }
+  .publications td:last-child { vertical-align: top; padding-right: 0; }
+  .page-hero-inner { padding: 48px 20px 64px; }
+  .page-hero-home .page-hero-inner { padding: 56px 20px 88px; }
+  .page-hero-home .hero-logo { height: 38px; margin-bottom: 28px; }
+}
+
+/* Project image strip under the home hero */
+.image-strip { display: block; width: 100%; height: auto; max-height: 220px; object-fit: cover; }
+
+/* ---------- Cards & panels ---------- */
 .w3-card, .w3-card-2, .w3-card-4 {
   border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08), 0 1px 4px 0 rgba(0,0,0,0.06) !important;
+  box-shadow: 0 2px 12px 0 rgba(61,59,62,0.08), 0 1px 4px 0 rgba(61,59,62,0.06) !important;
   overflow: hidden;
 }
 .w3-card:hover, .w3-card-2:hover, .w3-card-4:hover {
-  box-shadow: 0 6px 24px 0 rgba(0,0,0,0.12), 0 2px 8px 0 rgba(0,0,0,0.08) !important;
+  box-shadow: 0 6px 24px 0 rgba(61,59,62,0.14), 0 2px 8px 0 rgba(61,59,62,0.08) !important;
   transition: box-shadow 0.2s ease;
 }
+.w3-card.w3-white { color: var(--grey) !important; }
+.w3-card.w3-white .w3-container { background: var(--blush); padding-bottom: 8px; }
+.w3-card h4 { color: var(--charcoal); }
+
 .w3-container.w3-padding-64 {
-  padding-top: 80px !important;
-  padding-bottom: 80px !important;
+  padding-top: 72px !important;
+  padding-bottom: 72px !important;
 }
 
+/* Blush panel with the card waveform, as on the slide content panels */
+.panel-blush {
+  background-color: var(--blush);
+  background-image: url('/images/waves/card.svg');
+  background-repeat: no-repeat;
+  background-position: right -120px bottom -40px;
+  background-size: 760px auto;
+}
+
+/* ---------- People ---------- */
+#team .w3-circle {
+  border: 4px solid var(--pink);
+  transition: border-color 0.2s ease;
+}
+#team a:hover .w3-circle, #team a:focus-visible .w3-circle { border-color: var(--rose); }
+#team a { text-decoration: none; color: var(--grey); }
+#team p b { color: var(--charcoal); font-family: var(--font-heading); font-weight: 400; font-size: 1.1em; }
+#team p a { color: var(--rose); }
+
+/* ---------- Publications ---------- */
 .publications {
   max-width: 860px;
   padding-left: 1em;
   padding-bottom: 35px;
   margin-top: 1em;
-  border-bottom: 1px solid #eee;
-  font-size: 14px;
+  border-bottom: 1px solid var(--blush);
+  font-size: 15px;
   line-height: 1.65em;
   letter-spacing: 0;
   margin-right: auto;
   margin-left: auto;
   text-align: left
 }
-
 .publications img {
   float: left;
   height: 4em;
   margin-right: 10px;
+  border: 1px solid var(--blush);
 }
-.publications table {
-  border-collapse: collapse;
-}
-.publications tr {
-  border-top: 1px solid #eee;
-}
-.publications td {
-  padding: 0.5em;
-}
-.publications a {
-    font-weight: normal;
-}
+.publications table { border-collapse: collapse; }
+.publications tr { border-top: 1px solid var(--pink); }
+.publications td { padding: 0.6em 0.5em; }
+.publications a { font-weight: normal; color: var(--grey); text-decoration: none; }
+.publications a:hover { color: var(--rose); text-decoration: underline; }
+.publications a i { color: var(--rose); padding: 0 4px; }
+.publications i:not([class]) { color: var(--charcoal); }
 
+/* ---------- Contact ---------- */
+#contact .fa, #contact .fa-solid { color: var(--rose); width: 1.4em; }
 
+/* ---------- Footer ---------- */
+.site-footer {
+  position: relative;
+  background-color: var(--charcoal);
+  background-image: url('/images/waves/quotation.svg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+  color: #fff;
+  padding: 56px 32px 40px;
+}
+.site-footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.site-footer .footer-logo img { height: 34px; display: block; }
+.site-footer .footer-partners { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.site-footer .footer-partners img { height: 44px; width: auto; display: block; }
+.site-footer .footer-partners img.uwe { height: 84px; margin: -20px -14px; }
+.site-footer .footer-social a {
+  color: var(--pink);
+  font-size: 22px;
+  padding: 6px 10px;
+}
+.site-footer .footer-social a:hover { color: #fff; }
+.site-footer .footer-meta {
+  max-width: 1400px;
+  margin: 28px auto 0;
+  font-size: 14px;
+  color: var(--pink);
+}
+.site-footer .to-top {
+  position: absolute;
+  right: 24px;
+  top: -24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.site-footer .to-top:hover { background: #fff; color: var(--charcoal); }
+
+@media (max-width: 600px) {
+  .site-footer { padding: 48px 20px 32px; }
+  .site-footer-inner { flex-direction: column; align-items: flex-start; }
+}
