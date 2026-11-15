@@ -4,3 +4,6 @@ mica lab Values.docx
 
 # macOS
 .DS_Store
+
+# Deploy settings (host and user; the password lives in the keychain)
+.deploy.env
