@@ -1,12 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('site-footer').innerHTML = `
-    <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
-      <a class="w3-button w3-large" href="https://x.com/teamaxe" title="X" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-      <a class="w3-button w3-large w3-hide-small" href="https://www.linkedin.com/in/thomas-mitchell-72172013/" title="LinkedIn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a class="w3-button w3-large w3-hide-small" href="https://bsky.app/profile/teamaxe.bsky.social" title="Bluesky" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
-      <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
-        <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
-        <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge"><i class="fa fa-chevron-circle-up"></i></span></a>
+    <footer class="site-footer">
+      <div class="wrap row">
+        <a href="https://www.uwe.ac.uk/"><img class="uwe" src="/images/logos/uwe-bristol.svg" alt="UWE Bristol"></a>
+        <a href="/"><img class="mark" src="/images/logos/mica-lab-grey.svg" alt="mica lab home"></a>
+        <span class="social">
+          <a href="https://x.com/teamaxe" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/in/thomas-mitchell-72172013/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://bsky.app/profile/teamaxe.bsky.social" aria-label="Bluesky"><i class="fa-brands fa-bluesky" aria-hidden="true"></i></a>
+        </span>
+        <span class="partners">
+          <a href="https://www.ukri.org/"><img src="/images/logos/ukri-grey.svg" alt="UK Research and Innovation"></a>
+          <a href="https://www.uwe.ac.uk/research/centres-and-groups/cate-research-overview/the-bridge-studios"><img src="/images/logos/bridge-studios-grey.svg" alt="The Bridge Studios"></a>
+        </span>
       </div>
     </footer>
   `;

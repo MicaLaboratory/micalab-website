@@ -1,52 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>MICA Lab - Outside-In</title>
+<title>mica lab: Outside-In</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css?v=3">
-<link rel="stylesheet" href="/css/theme.css?v=3">
+<link rel="stylesheet" href="/css/theme.css?v=5">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 <script src="/nav.js"></script>
 <script src="/footer.js"></script>
 </head>
-<body id="myPage">
-
+<body>
+<a class="skip" href="#main">Skip to content</a>
 <div id="site-nav"></div>
-<div class="page-wrapper">
 
-<!-- Image Header -->
-<div class="w3-display-container w3-animate-opacity">
-  <img src="/images/banner.jpg" alt="Collage of lab projects: a sensor circuit board, children holding hands in a circle beneath a projected dome, a modular wooden instrument, a motion-blurred dancer, and a gesture-sensing glove" style="width:100%;min-height:100px;max-height:200px;margin-top: 35px;">
-</div>
+<main id="main">
+  <div class="pagewave"></div>
 
-<!-- Video Container -->
-<div class="w3-container w3-padding-64 w3-center" id="video">
-  <h2>UKRI Future Leaders Fellowship: <i>Outside-In</i>teractions</h2>
-  <div class="video-container">
-    <iframe width="1434" height="683" src="https://www.youtube.com/embed/8oR49gTTFco" title="Outside Interactions Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  </div>
-  <div class="w3-row-padding" style="margin-top: 15px">
-    <div class="w3-half">
-      <h4 style="text-align:right;">Video Audio Description:</h4>
+  <header class="titleband blush">
+    <div class="wrap oihead">
+      <div>
+        <h1><i>Outside-In</i>teractions</h1>
+        <p class="sub">UKRI Future Leaders Fellowship</p>
+      </div>
+      <img class="ukri" src="/images/logos/ukri-grey.svg" alt="UK Research and Innovation">
     </div>
-    <div class="w3-half">
-      <audio controls>
-        <source src="/audio/outside_interactions_audio_description.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
-  </div>
-  <p>The Outside Interactions project is supported by a UKRI Future Leaders Fellowship and will explore a novel approach to human computer interaction along with new methods for co-designing digital musical instruments (DMIs) with non-technical and physically impaired musicians. The project takes a disruptive and inclusive approach that that will reshape the fundamental practice of DMI design, inviting broader participation in the development of new musical instruments and future visions of musicianship.</p>
-  <p>Motion capture and gestural interaction technologies have shifted the locus of interaction away from physical objects and onto the body, realising human movement as the interface for performing music. The development of musical objects and gestural music interaction are often considered and pursued separately. By focusing on musical objects, instrument development is often framed as a technical challenge assuming normative players and overlooking the diversity of musicians, audiences, and their environments. Gestural music interaction has shown great potential for music performance and accessibility; however, it neglects the significant role of tactile feedback in music training and the development of virtuosic performance.</p>
-  <p>The Outside Interactions project will take a holistic approach, coupling gestural interaction and physical prototyping, departing from the conventional practice of embedding sensing technologies within an instrument and relocating the technology onto the body, sensing player interactions using wearable devices on the wrist and hand. A radical switch in both technical and design approach that opens innovative new research directions for low-cost, rapidly produced musical instruments, which can be designed to have any shape, scale or structure. Crucially, this provides new ways for people to participate in the rapid co-design of novel, customised musical instruments that are tailored to their unique artistic identity and access requirements.</p>
-</div>
+  </header>
 
-<!-- Footer -->
+  <section class="blush" style="padding-top:28px">
+    <div class="wrap">
+      <div class="video">
+        <div class="frame">
+          <iframe src="https://www.youtube.com/embed/8oR49gTTFco" title="Outside Interactions introduction video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="ad">
+          <b>Audio description</b>
+          <audio controls>
+            <source src="/audio/outside_interactions_audio_description.mp3" type="audio/mpeg">
+            <source src="/audio/outside_interactions_audio_description.wav" type="audio/wav">
+          </audio>
+        </div>
+        <details class="adtext">
+          <summary>Read the audio description</summary>
+          <p>The film begins with a UWE ident before cutting to Tom Mitchell, a white man in his forties, with grey hair, wearing a blue shirt. Tom is in a lab called the Centre for Print Research and in the background printing equipment and robot arms can be seen. Throughout the film footage cuts between Tom in the lab to footage of Tom working with a dancer wearing MiMU Gloves which are being used for music performance. The footage also cuts to a variety of music software interfaces and a number of music performances using gestural technology as well as synthesisers and keyboards. During the Outside Interactions description, slides that show hand drawn illustrations of several gestural musical instruments and tactile musical instruments are shown, and a finger pressing a button on a music interface where technology inside the instrument disappears before devices on the hand appear.</p>
+          <p>The x-io Technologies section shows a wheelchair tennis athlete in the background with plots showing their real-time motion data in the foreground. The Watershed section shows footage of the Bristol harbourside and the front of the Watershed. The Drake Music and B&amp;As music school footage shows their respective websites.</p>
+          <p>For the description of UWE the film cuts to drone footage of the Frenchay Campus and then some architectural drawings and 3D imagery of the Bridge showing a mixture of robotics, prototyping and immersive arts technology.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="lede-big">The Outside Interactions project is supported by a UKRI Future Leaders Fellowship and will explore a novel approach to human computer interaction along with new methods for co-designing digital musical instruments (DMIs) with non-technical and physically impaired musicians.</p>
+      <div class="prose">
+        <p>The project takes a disruptive and inclusive approach that will reshape the fundamental practice of DMI design, inviting broader participation in the development of new musical instruments and future visions of musicianship.</p>
+        <p>Motion capture and gestural interaction technologies have shifted the locus of interaction away from physical objects and onto the body, realising human movement as the interface for performing music. The development of musical objects and gestural music interaction are often considered and pursued separately. By focusing on musical objects, instrument development is often framed as a technical challenge assuming normative players and overlooking the diversity of musicians, audiences, and their environments. Gestural music interaction has shown great potential for music performance and accessibility; however, it neglects the significant role of tactile feedback in music training and the development of virtuosic performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="blush above">
+    <div class="wrap">
+      <div class="diagram">
+        <img src="/images/diagrams/entangled5-light.svg" alt="Diagram of five strands labelled Creativity, Materials, Technology, People and Place. Each starts from its own icon, then the strands weave together, crossing again and again.">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="prose">
+        <p style="margin-top:0">The Outside Interactions project will take a holistic approach, coupling gestural interaction and physical prototyping, departing from the conventional practice of embedding sensing technologies within an instrument and relocating the technology onto the body, sensing player interactions using wearable devices on the wrist and hand. A radical switch in both technical and design approach that opens innovative new research directions for low-cost, rapidly produced musical instruments, which can be designed to have any shape, scale or structure. Crucially, this provides new ways for people to participate in the rapid co-design of novel, customised musical instruments that are tailored to their unique artistic identity and access requirements.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <div id="site-footer"></div>
-</div>
 </body>
 </html>

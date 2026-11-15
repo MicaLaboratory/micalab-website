@@ -1,62 +1,30 @@
 document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('site-nav').innerHTML = `
-    <nav class="w3-sidebar w3-bar-block w3-white w3-card w3-animate-left w3-xxlarge" style="display:none;z-index:2" id="mySidebar">
-      <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-display-topright w3-text-teal">Close
-        <i class="fa fa-remove"></i>
-      </a>
-      <a href="/" class="w3-bar-item w3-button">Join Us!</a>
-      <a href="/outside-in/" class="w3-bar-item w3-button">Outside-In</a>
-      <a href="/people/" class="w3-bar-item w3-button">People</a>
-      <a href="/publications/" class="w3-bar-item w3-button">Publications</a>
-      <a href="/contact/" class="w3-bar-item w3-button">Contact</a>
+    <nav class="nav" aria-label="Main">
+      <div class="wrap bar">
+        <a class="logo" href="/"><img src="/images/logos/mica-lab-grey.svg" alt="mica lab home"></a>
+        <button class="menu" aria-expanded="false" aria-controls="nav-links" aria-label="Menu"><i class="fa fa-bars" aria-hidden="true"></i></button>
+        <ul id="nav-links">
+          <li><a href="/outside-in/">Outside-In</a></li>
+          <li><a href="/people/">People</a></li>
+          <li><a href="/publications/">Publications</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
     </nav>
-
-    <div class="w3-top">
-      <div class="w3-bar w3-theme-d2 w3-left-align">
-        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()" aria-label="Menu"><i class="fa fa-bars"></i></a>
-        <a href="/" class="w3-bar-item w3-button"><img src="/images/micalogos/colour.svg" alt="MICA Lab home" style="height:24px;vertical-align:middle;"></a>
-        <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Join Us!</a>
-        <a href="/outside-in/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Outside-In</a>
-        <a href="/people/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">People</a>
-        <a href="/publications/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
-        <a href="/contact/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-      </div>
-      <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
-        <a href="/" class="w3-bar-item w3-button">Join Us!</a>
-        <a href="/outside-in/" class="w3-bar-item w3-button">Outside-In</a>
-        <a href="/people/" class="w3-bar-item w3-button">People</a>
-        <a href="/publications/" class="w3-bar-item w3-button">Publications</a>
-        <a href="/contact/" class="w3-bar-item w3-button">Contact</a>
-      </div>
-    </div>
   `;
 
   const path = window.location.pathname;
-  document.querySelectorAll('#site-nav .w3-bar a.w3-bar-item[href]').forEach(function (link) {
-    if (link.querySelector('img')) return;
-    const href = link.getAttribute('href');
-    if (href === path || (href !== '/' && path.startsWith(href))) {
-      link.classList.add('nav-active');
+  document.querySelectorAll('#nav-links a').forEach(function (link) {
+    if (path.startsWith(link.getAttribute('href'))) {
+      link.setAttribute('aria-current', 'page');
     }
   });
+
+  const nav = document.querySelector('#site-nav .nav');
+  const button = nav.querySelector('.menu');
+  button.addEventListener('click', function () {
+    const open = nav.classList.toggle('open');
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
 });
-
-function w3_open() {
-  var x = document.getElementById('mySidebar');
-  x.style.width = '300px';
-  x.style.paddingTop = '10%';
-  x.style.display = 'block';
-}
-
-function w3_close() {
-  document.getElementById('mySidebar').style.display = 'none';
-}
-
-function openNav() {
-  var x = document.getElementById('navDemo');
-  if (x.className.indexOf('w3-show') == -1) {
-    x.className += ' w3-show';
-  } else {
-    x.className = x.className.replace(' w3-show', '');
-  }
-}
