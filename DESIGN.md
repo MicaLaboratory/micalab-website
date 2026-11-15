@@ -149,7 +149,7 @@ The waveform always sits on the right or bottom edge and bleeds off the slide. I
 
 **Web.**
 
-- Keep the current `.page-wrapper` with max width 1400px. Side padding of about 3% (minimum 16px) matches the slide margins.
+- As built: one centred content column of 1140px (the common Bootstrap-style width), with side padding of about 3% (minimum 16px). Coloured bands and waveforms run full width; content stays in the column.
 - Section spacing: alternate white and blush (or charcoal) bands, not rules. Vertical padding about 64px on desktop and 40px on mobile.
 - Grids:
   - 4 columns: 2 under 900px, 1 under 600px.
@@ -185,7 +185,7 @@ Each slide layout and the web element it would become:
 - **Logos** (Contact): partner logos are greyscale in white tiles and turn to colour on hover or focus. Pale logos get an SVG tone-curve filter so they stay visible in grey.
 - **Links**: rose on light backgrounds, pink on dark. Underline links in body text. Links in nav, footer or card titles can drop the underline if they have a hover or focus state.
 - **Icons**: the process icons (`03-process-icons/`) are thin charcoal line art on a 256px grid. Any Font Awesome icons should look similar: one colour, sitting inside pink or blush circles where they appear as a group.
-- **Publications** (as built): grouped by year, with large rose year headings. Each entry has a small thumbnail, the authors, the title in the heading font, an italic venue, and labelled link buttons (PDF, DOI, Video, Zine, or the site's hostname). A sticky bar holds theme filter buttons and year jump links.
+- **Publications** (as built): a Google Scholar-style list, with theme filter buttons above it. Each row has a small square thumbnail; the title as a regular-weight rose link; the authors and full venue name in smaller grey text; outline labels (awards, Composition, Cover article); a links column (DOI or Link, PDF, Video); and the year on the right. On phones the year joins the venue line and the links sit underneath.
 
 ## 8. Accessibility
 

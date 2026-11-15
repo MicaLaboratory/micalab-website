@@ -12,7 +12,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=5` for cache busting. Bump it on all 5 pages when the CSS changes.
+  - CSS is linked with `?v=6` for cache busting. Bump it on all 5 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page
@@ -33,7 +33,7 @@ Every page copies the same `<head>` and skeleton: `.skip` link > `#site-nav` > `
 Inside `main`:
 - `<div class="pagewave">` first, on every page except Publications, which is too tall for it.
 - `header.titleband.blush` with the h1.
-- `section`s, alternating `.blush` and white, each with a `.wrap` (max 1400px).
+- `section`s, alternating `.blush` and white, each with a `.wrap`: a centred 1140px content column. Coloured bands and waveforms run full width; content stays in the column.
 
 The h1 is the page title, so sections use `h2`. When adding a page, copy an existing one and add the link to the `<ul>` in `nav.js`.
 
@@ -41,25 +41,32 @@ The h1 is the page title, so sections use `h2`. When adding a page, copy an exis
 
 - Each paper lives in a numbered folder `publications/NNN/` holding `<name>.pdf` + `<name>.png` thumbnail. The numbers go up by date; the newest is currently `062`.
 - Name files after the venue and paper, e.g. `NIME2026-Gulf.pdf`, `ASSETS2026-Procrustean.pdf`. Thumbnails are a figure cropped from the paper, not a page preview.
-- `publications/index.html` lists them newest first, grouped into `<div class="year" id="yYYYY">` blocks, one `<article class="pub">` per paper. New entry template:
+- `publications/index.html` is a Google Scholar-style list, newest first, with one `<article class="srow">` row per paper. It has four columns (thumbnail | title, authors, venue and labels | links | year) under a TITLE / LINKS / YEAR header row. New entry template:
 
 ```html
-        <article class="pub" data-t="des ai">
-          <a class="thumb" href="/publications/NNN/file.pdf" tabindex="-1" aria-hidden="true"><img src="/publications/NNN/file.png" alt=""></a>
-          <div>
-            <p class="a">Surname, I., and Mitchell, T. J.</p>
-            <p class="cite"><a href="/publications/NNN/file.pdf"><span class="t">Title</span><span class="v">, In: <i>Venue</i></span></a></p>
-            <div class="acts"><a href="https://doi.org/..."><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>DOI</a><a href="/publications/NNN/file.pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>PDF</a></div>
-          </div>
-        </article>
+      <article class="srow" data-t="des ai">
+        <a class="thumb" href="/publications/NNN/file.pdf" tabindex="-1" aria-hidden="true"><img src="/publications/NNN/file.png" alt=""></a>
+        <div class="main"><a class="ti" href="/publications/NNN/file.pdf">Title</a>
+          <div class="au">Surname, I., and Mitchell, T. J.</div>
+          <div class="ve"><span class="venue">New Interfaces for Musical Expression (NIME)<span class="vy">, YEAR</span></span></div></div>
+        <div class="lk"><a href="https://doi.org/..."><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>DOI</a><a href="/publications/NNN/file.pdf"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i>PDF</a></div>
+        <div class="yr">YEAR</div>
+      </article>
 ```
 
-- `data-t` holds the theme tags, which drive the filter buttons: `acc` Accessibility, `ges` Gesture, `des` Design & Making, `ai` AI (includes evolutionary computation), `son` Sonification, `imm` Immersion (includes robotics), `aud` Audio, `comp` Composition. The counts on the filter buttons are hard-coded, so update them when you add a paper. If you add a new year, add its `<a class="yr">` link too.
-- Link buttons always have a text label: `PDF`, `DOI`, `Video` (`fa-brands fa-youtube`), `Zine` (`fa-solid fa-book`). Other sites use their hostname, e.g. `nime.org`.
-- Labels go at the start of `.a`:
-  - compositions: `<span class="badge"><i class="fa-solid fa-music" aria-hidden="true"></i>Composition</span>`
-  - awards: `fa-solid fa-award`, e.g. "Honourable Mention" (UK spelling) or "Best Paper Nominee"
-- The thumbnail link is deliberately `aria-hidden` with `alt=""` because it repeats the text link next to it. Keep that pattern.
+- **Venue**: spell it out, with the usual acronym in brackets, e.g. "New Interfaces for Musical Expression (NIME)", "International Conference on Auditory Display (ICAD)". For journals, add volume and article, e.g. "Frontiers in Virtual Reality, 5, Article 1404865". The year goes in `.vy`, which only shows on phones, and in `.yr`. Don't put DOIs in the venue text: use a DOI link instead.
+- **Title**: use the final published title, e.g. from the DOI or nime.org page, not the submitted one.
+- **Authors**: list them all, in `Surname, I.` form. If there are more than seven, show the first five, the last author, and a "+N more" button:
+  `First, A., …five…, <span class="more" hidden>Middle, M., … </span><span class="ell" aria-hidden="true">… </span>and Mitchell, T. <button class="more-btn" aria-expanded="false" data-n="N">+N more</button>` (N = total − 6). The script at the bottom of the page wires the button up.
+- **Links** (`.lk`), always in this order:
+  1. where it's published: `DOI`, or `Link` for any other page. A `Link` gets `title="nime.org"` and `<span class="sr-only"> (nime.org)</span>` so the site name isn't lost.
+  2. files: `PDF`, `Extended` (fuller review version; give it a `title` saying so), `Zine` (`fa-solid fa-book`)
+  3. media: `Video` (`fa-brands fa-youtube`)
+
+  For NIME papers, link the permanent nime.org page (`nime.org/proc/…`, `/proc_music/…` for music, `/proc_alt/…` for alt.NIME), not the yearly conference site.
+- **Labels** go in `<div class="labels">` after `.ve`, as outline pills: `<span class="badge"><i class="fa-solid fa-award" aria-hidden="true"></i>Honourable Mention</span>`. Use `fa-music` for "Composition", `fa-award` for awards ("Honourable Mention" in UK spelling, "Best Paper Nominee"), and `fa-book-open` for "Cover article".
+- **Themes**: `data-t` holds the theme tags, which drive the filter buttons: `acc` Accessibility, `ges` Gesture, `des` Design & Making, `ai` AI (includes evolutionary computation), `son` Sonification, `imm` Immersion (includes robotics), `aud` Audio, `comp` Composition. The counts on the filter buttons are hard-coded, so update them when you add a paper.
+- The thumbnail link is deliberately `aria-hidden` with `alt=""` because it repeats the title link next to it. Keep that pattern.
 - `025` has only a PNG on purpose: that entry links to pushturnmove.com.
 
 ## Accessibility
