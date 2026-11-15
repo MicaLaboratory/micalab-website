@@ -77,6 +77,14 @@ The lab is inclusive and accessibility-focused:
   - **Digital Musical Instrument Design** shows as "Announced soon" on People. Update it when the appointment is announced.
 - Footer social links: X (`x.com/teamaxe`), LinkedIn, Bluesky. The footer partner logos link to UKRI and The Bridge Studios (UWE page).
 
+## Deploying
+
+- The code is on GitHub at `MicaLaboratory/micalab-website` (public), SSH remote. The live site is IONOS webspace folder `/micalab`.
+- `./deploy.sh` mirrors the repo to the server over SFTP with `lftp`. It uploads changed files and **deletes server files that aren't in the repo**, after a dry run and a y/N prompt. Paths in its exclude list (`CLAUDE.md`, `DESIGN.md`, `deploy.sh`, `slideAssets/`, `jobs/`, dotfiles) are never uploaded or deleted.
+- Server host and user are in the git-ignored `.deploy.env`. The SFTP password is in the macOS keychain (`micalab-deploy`). Never commit either.
+- Run `deploy.sh` and any `security … -w` command in the Terminal app. Through Claude Code's `!` prompt, their interactive input is not captured (the keychain once saved an empty password that way).
+- A backup of the server's old `archive/` folder (removed 2026-11-15) is in `~/Work/research/websites/micalab-server-archive-2024/`.
+
 ## Checking local links
 
 ```bash

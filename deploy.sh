@@ -10,7 +10,9 @@
 #   security add-generic-password -s micalab-deploy -a <sftp-user> -w   # prompts for the SFTP password
 #   sftp <sftp-user>@<host>                 # connect once to accept the server's host key, then type exit
 #
-# Only uploads new or changed files. It never deletes anything on the server.
+# Uploads new or changed files and deletes server files that are no longer in the
+# repo, so the server matches the repo. Excluded paths (below) are never touched.
+# Everything is listed in a dry run first; nothing happens until you type y.
 
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -49,7 +51,7 @@ run_mirror() {
   lftp -c "
     set net:max-retries 2; set net:timeout 20;
     open --env-password -u \"$DEPLOY_USER\" \"sftp://$DEPLOY_HOST\";
-    mirror --reverse --only-newer --no-perms --parallel=4 $1 $EXCLUDES . \"$DEPLOY_PATH\"
+    mirror --reverse --only-newer --no-perms --delete --parallel=4 $1 $EXCLUDES . \"$DEPLOY_PATH\"
   "
 }
 
@@ -63,14 +65,17 @@ if ! lftp -c "set net:max-retries 1; set net:timeout 20;
 fi
 
 echo "Checking what would change on $DEPLOY_HOST:$DEPLOY_PATH ..."
-PLAN=$(run_mirror --dry-run)
+PLAN=$(run_mirror --dry-run | grep -v "^mkdir -p " || true)   # lftp always reports the top folder
 if [ -z "$PLAN" ]; then
   echo "Nothing to upload: the server is up to date."
   exit 0
 fi
 echo "$PLAN"
 echo
-read -r -p "Upload these files to micalab.org? [y/N] " ok
+if echo "$PLAN" | grep -qE '^rm'; then
+  echo "WARNING: the lines starting 'rm' DELETE those files from the live server."
+fi
+read -r -p "Apply these changes to micalab.org? [y/N] " ok
 [ "$ok" = "y" ] || [ "$ok" = "Y" ] || { echo "Cancelled."; exit 0; }
 
 run_mirror --verbose
