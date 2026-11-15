@@ -53,6 +53,15 @@ run_mirror() {
   "
 }
 
+# Fail fast on a bad login or path; otherwise the dry run below lists every file as new
+echo "Connecting to $DEPLOY_HOST ..."
+if ! lftp -c "set net:max-retries 1; set net:timeout 20;
+     open --env-password -u \"$DEPLOY_USER\" \"sftp://$DEPLOY_HOST\"; cd \"$DEPLOY_PATH\"" 2>/tmp/micalab-deploy-err; then
+  echo "Could not log in or open $DEPLOY_PATH:"; cat /tmp/micalab-deploy-err
+  echo "Check the username in .deploy.env and the password in the keychain (see the setup notes at the top)."
+  exit 1
+fi
+
 echo "Checking what would change on $DEPLOY_HOST:$DEPLOY_PATH ..."
 PLAN=$(run_mirror --dry-run)
 if [ -z "$PLAN" ]; then
