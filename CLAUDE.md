@@ -1,6 +1,6 @@
 # mica lab website
 
-Static site for the Music Interaction and Computational Arts lab ("mica lab", always lowercase), UWE Bristol, served at https://micalab.org. There's no build step, package manager or tests. You edit HTML/CSS/JS directly and upload the files to an Apache host (`.htaccess` forces HTTPS to micalab.org).
+Static site for mica lab (music interaction and computational arts; both always lowercase), UWE Bristol, served at https://micalab.org. There's no build step, package manager or tests. You edit HTML/CSS/JS directly and upload the files to an Apache host (`.htaccess` forces HTTPS to micalab.org).
 
 Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it before restyling anything.
 
@@ -12,7 +12,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=7` for cache busting. Bump it on all 5 pages when the CSS changes.
+  - CSS is linked with `?v=9` for cache busting. Bump it on all 5 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page
@@ -65,7 +65,7 @@ The h1 is the page title, so sections use `h2`. When adding a page, copy an exis
 
   For NIME papers, link the permanent nime.org page (`nime.org/proc/…`, `/proc_music/…` for music, `/proc_alt/…` for alt.NIME), not the yearly conference site.
 - **Labels** go in `<div class="labels">` after `.ve`, as outline pills: `<span class="badge"><i class="fa-solid fa-award" aria-hidden="true"></i>Honourable Mention</span>`. Use `fa-music` for "Composition", `fa-award` for awards ("Honourable Mention" in UK spelling, "Best Paper Nominee"), and `fa-book-open` for "Cover article".
-- **Themes**: `data-t` holds the theme tags, which drive the filter buttons: `acc` Accessibility, `ges` Gesture, `des` Design & Making, `ai` AI (includes evolutionary computation), `son` Sonification, `imm` Immersion (includes robotics), `aud` Audio, `comp` Composition. The counts on the filter buttons are hard-coded, so update them when you add a paper.
+- **Themes**: `data-t` holds the theme tags, which drive the filter buttons: `acc` Accessibility, `ges` Gesture, `des` Design and Making, `ai` AI (includes evolutionary computation), `son` Sonification, `imm` Immersion (includes robotics), `aud` Audio, `comp` Composition. The counts on the filter buttons are hard-coded, so update them when you add a paper.
 - The thumbnail link is deliberately `aria-hidden` with `alt=""` because it repeats the title link next to it. Keep that pattern.
 - `025` has only a PNG on purpose: that entry links to pushturnmove.com.
 
