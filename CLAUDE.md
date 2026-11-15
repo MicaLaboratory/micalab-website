@@ -12,7 +12,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=6` for cache busting. Bump it on all 5 pages when the CSS changes.
+  - CSS is linked with `?v=7` for cache busting. Bump it on all 5 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page
