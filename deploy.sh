@@ -43,7 +43,7 @@ export LFTP_PASSWORD
 EXCLUDES=''
 for g in .git/ .github/ .claude/ .gitignore .DS_Store '*/.DS_Store' \
          .deploy.env .deploy.env.example deploy.sh CLAUDE.md DESIGN.md \
-         slideAssets/ 'mica lab Values.docx' jobs/; do
+         slideAssets/ 'mica lab Values.docx' mica_lab_values.md jobs/; do
   EXCLUDES+=" --exclude-glob \"$g\""
 done
 
