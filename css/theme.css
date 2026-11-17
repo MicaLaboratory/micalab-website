@@ -113,7 +113,7 @@ section.above { z-index: 1; }
 @media (max-width: 700px) { .grid2 { grid-template-columns: 1fr; } }
 
 /* ---------- Home ---------- */
-.herozone { position: relative; overflow: hidden; } /* the landing hero sits over the waveform */
+.herozone { position: relative; overflow: hidden; } /* the landing hero and banner band sit over one waveform */
 .home-hero { padding: 72px 0 64px; }
 .herozone .herowave {
   position: absolute; inset: 0; pointer-events: none;
@@ -124,12 +124,13 @@ section.above { z-index: 1; }
 .home-hero .lede { font-family: var(--head); color: var(--charcoal); font-size: 1.25rem; margin: 0 0 1.2em; }
 .home-hero .about { max-width: 40em; margin: 0; font-size: 17px; }
 /* The whole collage, in the content column on a blush band, toned to the palette
-   (greyscale with a pink tint). On phones it keeps a readable height and scrolls sideways. */
+   (partly greyscale with a pink tint, so some colour comes through). On phones it keeps a readable height and scrolls sideways. */
 .bannerband { padding: 28px 0; }
+.banner { position: relative; z-index: 1; }
 .banner { overflow-x: auto; border-radius: 12px; }
 .banner .bin { position: relative; } /* sized to the image, so the tint scrolls with it on phones */
-.banner img { width: 100%; height: auto; filter: grayscale(1) contrast(.85) brightness(1.05); }
-.banner .bin::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--pink); mix-blend-mode: multiply; opacity: .55; }
+.banner img { width: 100%; height: auto; filter: grayscale(.55) contrast(.9) brightness(1.05); }
+.banner .bin::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: var(--pink); mix-blend-mode: multiply; opacity: .4; }
 @media (max-width: 700px) {
   .banner .bin { width: max-content; }
   .banner img { width: auto; max-width: none; height: 150px; }
@@ -137,11 +138,29 @@ section.above { z-index: 1; }
 
 /* Previews of the other pages, filled by previews.js */
 .preview { padding: 48px 0; }
-.pvhead { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+.pvhead { margin-bottom: 18px; }
 .pvhead h2 { margin: 0; text-align: left; }
-.pvhead a { font-family: var(--head); text-decoration: none; white-space: nowrap; }
-.pvhead a:hover { text-decoration: underline; }
-.pvhead a i { font-size: .85em; margin-left: 4px; }
+/* Each preview is cut off with a fade (a mask, so the waveform shows through), to show there is more on the full page */
+.pvclip.loaded { position: relative; max-height: var(--pv-h); overflow: hidden; }
+.pvclip.loaded {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 140px), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 140px), transparent);
+}
+/* A different slide waveform, very faint, behind each preview */
+.pvwave {
+  position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: no-repeat center / 100% 100%; opacity: .28;
+}
+@media (max-width: 700px) { .pvwave { opacity: .16; } }
+@media (max-width: 700px) { .pvclip.loaded { max-height: var(--pv-h-sm); } }
+.pvmore { text-align: center; margin: 14px 0 0; }
+.pvclip .people + .people { margin-top: 32px; }
+.pvmore a {
+  display: inline-block; font-family: var(--head); font-size: 17px; text-decoration: none;
+  color: var(--rose); border: 2px solid var(--rose); border-radius: 999px; padding: 6px 20px;
+}
+.pvmore a:hover { background: var(--rose); color: #fff; }
+.pvmore a i { font-size: .85em; margin-left: 4px; }
 .pv-oi .sub { font-family: var(--head); color: var(--charcoal); font-size: 1.15rem; margin: 0 0 .6em; }
 .pv-oi .lede-big { max-width: 52em; margin: 0 0 1.4em; }
 .pv-oi .diagram { max-width: 900px; margin: 0 auto; }

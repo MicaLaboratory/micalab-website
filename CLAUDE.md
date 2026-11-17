@@ -8,7 +8,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
 
 - `index.html`: landing page. It has the "mica lab" hero with the lab description and a light waveform behind it, then the whole `banner-full.jpg` collage edge to edge (it scrolls sideways on phones), then previews of Outside-In, People, Publications and Contact.
   - The previews load from the real pages, so they never need editing by hand. `previews.js` fetches each page and copies in the elements marked `data-preview="…"` there. The landing `<div data-from="/page/" data-pick="key1 key2">` says which ones.
-  - The marked blocks: Outside-In `sub`, `intro`, `diagram`. People `team`. Publications `list` (the landing keeps the first 3 `.srow`s and fills in the total count). Contact `ink` (the logo filter), `card`, `partners`.
+  - The marked blocks: Outside-In `sub`, `intro`, `diagram`. People `team`, `phd`. Publications `list` (the landing keeps the first 4 `.srow`s). Contact `ink` (the logo filter), `card`, `partners`.
   - If you restructure one of those pages, keep the `data-preview` attributes on the right blocks. If loading fails, the one-line fallback text in each landing `<div>` stays.
   - Previews only work over http, not from a `file://` URL. Use the local server.
   - `banner-full.jpg` is a 2560px copy of the 6266px `banner.jpg`.
@@ -23,7 +23,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=11` for cache busting. Bump it on all 7 pages when the CSS changes.
+  - CSS is linked with `?v=12` for cache busting. Bump it on all 7 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page

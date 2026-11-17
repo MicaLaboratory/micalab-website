@@ -126,7 +126,8 @@ The waveform always sits on the right or bottom edge and bleeds off the slide. I
 **Web.**
 
 - The source SVGs are 600–940 KB. Shrink them before use: simplify the polylines (Ramer–Douglas–Peucker) and round coordinates to 1 decimal place, which gets them to roughly 10–30 KB.
-- As built, the site uses one waveform: `images/waves/page-band.svg`, the title-slide wave in rose. It has `preserveAspectRatio="none"` and non-scaling 1.3px strokes, so it stretches to fill any box.
+- As built, the main waveform is `images/waves/page-band.svg`, the title-slide wave in rose. The landing previews each use another slide wave, made the same way: `wave-divider.svg`, `wave-card.svg`, `wave-quote.svg` and `wave-panel.svg` (as `.pvwave`, opacity .28, .16 on phones).
+- Shared form of all of them: It has `preserveAspectRatio="none"` and non-scaling 1.3px strokes, so it stretches to fill any box.
   - It sits very faint (opacity about .3) behind whole pages, as `.pagewave`, and behind the landing hero, as `.herowave`.
   - It may run behind text only because it's this faint. Keep it at or below that opacity, and fainter still on phones.
   - Leave it off very tall pages (Publications), where stretching flattens it into near-vertical lines.
