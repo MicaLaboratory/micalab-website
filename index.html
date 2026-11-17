@@ -4,13 +4,14 @@
 <title>mica lab</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/theme.css?v=9">
+<link rel="stylesheet" href="/css/theme.css?v=11">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
 <script src="/nav.js"></script>
 <script src="/footer.js"></script>
+<script src="/previews.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -23,24 +24,50 @@
     <div class="wrap">
       <h1>mica lab</h1>
       <p class="lede">music interaction and computational arts &middot; UWE Bristol</p>
-      <p class="about">The music interaction and computational arts (mica) lab is an inclusive research group that develops and evaluates novel technologies for creative expression. The lab is located in <a href="https://www.uwe.ac.uk/research/centres-and-groups/cate-research-overview/the-bridge-studios">The Bridge Studios</a>: a cutting-edge creative technology facility funded by the Arts and Humanities Research Council (AHRC), the West of England Mayoral Combined Authority (WEMCA) and UWE, Bristol.</p>
+      <p class="about">The music interaction and computational arts (mica) lab is an inclusive, values-led research group that develops and evaluates novel technologies for creative expression. The lab is located in <a href="https://www.uwe.ac.uk/research/centres-and-groups/cate-research-overview/the-bridge-studios">The Bridge Studios</a>: a cutting-edge creative technology facility funded by the Arts and Humanities Research Council (AHRC), the West of England Mayoral Combined Authority (WEMCA) and UWE, Bristol.</p>
     </div>
   </header>
+  </div>
 
-  <section class="blush">
+  <section class="blush bannerband">
+    <div class="wrap"><div class="banner"><div class="bin">
+      <img src="/images/banner-full.jpg" width="2560" height="401" alt="Collage of lab projects: a sensor circuit board, children holding hands in a circle beneath a projected dome, a modular wooden instrument, a motion-blurred dancer, and a gesture-sensing glove">
+    </div></div></div>
+  </section>
+
+  <section class="preview">
     <div class="wrap">
-      <div class="collab">
-        <p class="big">To discuss research, projects or collaborations email:</p>
-        <p><a href="mailto:tom.mitchell@uwe.ac.uk">tom.mitchell@uwe.ac.uk</a></p>
-        <a class="btn" href="/contact/">Get in touch</a>
+      <div class="pvhead"><h2>Outside-In</h2><a href="/outside-in/">About the project <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div class="pv-oi" data-from="/outside-in/" data-pick="sub intro diagram">
+        <p>Outside Interactions is a UKRI Future Leaders Fellowship exploring new ways to co-design digital musical instruments with disabled musicians.</p>
       </div>
     </div>
   </section>
-  </div>
 
-  <section>
+  <section class="preview blush">
     <div class="wrap">
-      <img class="strip" src="/images/banner.jpg" alt="Collage of lab projects: a sensor circuit board, children holding hands in a circle beneath a projected dome, a modular wooden instrument, a motion-blurred dancer, and a gesture-sensing glove">
+      <div class="pvhead"><h2>People</h2><a href="/people/">Everyone in the lab <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div data-from="/people/" data-pick="team">
+        <p>The lab team, PhD students and alumni.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview">
+    <div class="wrap">
+      <div class="pvhead"><h2>Publications</h2><a href="/publications/">All <span data-count></span> publications <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div data-from="/publications/" data-pick="list" data-items=".srow" data-limit="3" data-drop=".shead, .more-btn">
+        <p>Papers, articles and compositions from the lab.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="preview blush">
+    <div class="wrap">
+      <div class="pvhead"><h2>Contact</h2><a href="/contact/">Contact and partners <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+      <div data-from="/contact/" data-pick="ink card partners">
+        <p>To discuss research, projects or collaborations email <a href="mailto:tom.mitchell@uwe.ac.uk">tom.mitchell@uwe.ac.uk</a>.</p>
+      </div>
     </div>
   </section>
 </main>

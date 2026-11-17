@@ -6,13 +6,24 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
 
 ## Layout
 
-- `index.html`: landing page. It has the "mica lab" hero with the lab description and a light waveform behind it, a blush collaboration band ("Get in touch" → Contact), and the `banner.jpg` photo strip.
+- `index.html`: landing page. It has the "mica lab" hero with the lab description and a light waveform behind it, then the whole `banner-full.jpg` collage edge to edge (it scrolls sideways on phones), then previews of Outside-In, People, Publications and Contact.
+  - The previews load from the real pages, so they never need editing by hand. `previews.js` fetches each page and copies in the elements marked `data-preview="…"` there. The landing `<div data-from="/page/" data-pick="key1 key2">` says which ones.
+  - The marked blocks: Outside-In `sub`, `intro`, `diagram`. People `team`. Publications `list` (the landing keeps the first 3 `.srow`s and fills in the total count). Contact `ink` (the logo filter), `card`, `partners`.
+  - If you restructure one of those pages, keep the `data-preview` attributes on the right blocks. If loading fails, the one-line fallback text in each landing `<div>` stays.
+  - Previews only work over http, not from a `file://` URL. Use the local server.
+  - `banner-full.jpg` is a 2560px copy of the 6266px `banner.jpg`.
 - `outside-in/`, `people/`, `publications/`, `contact/`: one `index.html` each.
+- `values/`: the lab values. Not linked from anywhere yet (the landing page says "values-led" without a link), but deployed and reachable by URL. To launch it, link the word "values" in the landing description to `/values/`.
+  - It holds a Standard and an Easy Read version (`#v-standard`, `#v-easy-read`). `values/switch.js` swaps them; `/values/#easy-read` opens Easy Read. Without JS both show.
+  - Each value has a line icon in `images/values/` (64px viewBox, blush disc, charcoal 2.2 stroke, one rose accent). Both versions share them.
+  - In-text citations link to `#ref-…` ids in Further reading.
+  - `values/story/`: "Why I wrote these values" by Tom, with one footnote (`#fn-mad` / `#fnref-mad`).
+  - The source text is `mica_lab_values.md` (not in git).
 - `nav.js` / `footer.js` inject the shared nav and footer into `#site-nav` / `#site-footer` on `DOMContentLoaded`. Every page includes both in `<head>`.
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=9` for cache busting. Bump it on all 5 pages when the CSS changes.
+  - CSS is linked with `?v=11` for cache busting. Bump it on all 7 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page
