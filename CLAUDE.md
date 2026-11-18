@@ -6,13 +6,21 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
 
 ## Layout
 
-- `index.html`: landing page. It has the "mica lab" hero with the lab description and a light waveform behind it, then the whole `banner-full.jpg` collage edge to edge (it scrolls sideways on phones), then previews of Outside-In, People, Publications and Contact.
+- `index.html`: landing page. It has the "mica lab" hero with the lab description and a light waveform behind it, then the whole `banner-full.jpg` collage edge to edge (it scrolls sideways on phones), then previews of Projects, People, Publications and Contact.
   - The previews load from the real pages, so they never need editing by hand. `previews.js` fetches each page and copies in the elements marked `data-preview="…"` there. The landing `<div data-from="/page/" data-pick="key1 key2">` says which ones.
-  - The marked blocks: Outside-In `sub`, `intro`, `diagram`. People `team`, `phd`. Publications `list` (the landing keeps the first 4 `.srow`s). Contact `ink` (the logo filter), `card`, `partners`.
+  - The marked blocks: Projects `tiles` (the whole grid; clicking a tile opens its pop-up on the landing page too, so `index.html` also loads `projects/projects.js` and has the `<dialog class="pop">`). People `team` (everyone current, one list: Tom first, then alphabetical by surname, unannounced posts last). Publications `list` (the landing keeps the first 4 `.srow`s). Contact `ink` (the logo filter), `card`, `partners`.
+  - `previews.js` options: `data-items` with `data-match` (keep matching items) and/or `data-limit`; `data-drop`; `data-reveal` (un-hide); `data-keep-headings`. Boxes that arrive inside a copy are filled too, and `fillPreviews(root)` is global.
   - If you restructure one of those pages, keep the `data-preview` attributes on the right blocks. If loading fails, the one-line fallback text in each landing `<div>` stays.
   - Previews only work over http, not from a `file://` URL. Use the local server.
   - `banner-full.jpg` is a 2560px copy of the 6266px `banner.jpg`.
-- `outside-in/`, `people/`, `publications/`, `contact/`: one `index.html` each.
+- `people/`, `publications/`, `contact/`: one `index.html` each. The old `/outside-in/` page was merged into `/projects/outside-in/`; `.htaccess` redirects the old URL there (301).
+- `projects/`: a grid of square tiles (`.ptile`). The name shows on hover or focus, and always on touch screens.
+  - A tile that links to a project page (`/projects/<name>/`) opens it as a pop-up. `projects/projects.js` copies that page's `data-preview` blocks `head video about credits pubs` into the `<dialog class="pop">` with `previews.js`, and changes the address to the project's URL. Back, Escape, the close button and the backdrop close it, returning to the page the tile was on. Reloading that URL shows the full project page.
+  - Each project has one page, written once: its top sections are the pop-up. Order on the page: head, video, about (opening paragraphs), then `<section id="more">` with the longer text (page only, not in the pop-up), then credits (Collaborators, Funders) and pubs.
+  - The head's right side (`.projside`) holds a "Read more" button (`.readmore`, linking to the page itself, deliberately without `#more` so it opens at the top) above the funder's logo. The button only shows in the pop-up.
+  - Collaborators and Funders are `<li><a><span class="clogo"><img alt=""></span>Name</a></li>` rows with small greyscale logos from `images/partners/` (colour on hover). Pale logos get `class="pale"`, which uses the `#ink` filter defined inside the credits block so the pop-up has it too.
+  - Placeholder tiles are `<button class="ptile soon" data-soon>` with a faint waveform (`--wave`), and open a "coming soon" pop-up. To add a project: copy `projects/outside-in/`, put a square image in `images/projects/`, and turn the button into `<a class="ptile" href="/projects/<name>/">` with an `<img alt="">` and `.pname`.
+  - Each project page's Publications list fills itself from `/publications/`, keeping the rows tagged with that project: `<article class="srow" data-proj="outside-in">`. Outside-In's tag is on every paper whose PDF acknowledges grant MR/X036103/1.
 - `values/`: the lab values. Not linked from anywhere yet (the landing page says "values-led" without a link), but deployed and reachable by URL. To launch it, link the word "values" in the landing description to `/values/`.
   - It holds a Standard and an Easy Read version (`#v-standard`, `#v-easy-read`). `values/switch.js` swaps them; `/values/#easy-read` opens Easy Read. Without JS both show.
   - Each value has a line icon in `images/values/` (64px viewBox, blush disc, charcoal 2.2 stroke, one rose accent). Both versions share them.
@@ -23,7 +31,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `nav.js` sets `aria-current="page"` on the link for the current path, and toggles `.open` on the mobile menu button.
   - There's no "Home" or "Join Us" link: the logo goes home.
 - `css/theme.css` holds the whole site style; W3.CSS is no longer used. `css/style.css` is the old vendored W3.CSS and isn't linked from anywhere.
-  - CSS is linked with `?v=12` for cache busting. Bump it on all 7 pages when the CSS changes.
+  - CSS is linked with `?v=13` for cache busting. Bump it on all 9 pages when the CSS changes.
 - External assets: Font Awesome 6.5.2 (cdnjs), Google Fonts Questrial (fallback for Century Gothic headings). The body font is Corbel, which isn't a web font, so visitors without it get Segoe UI, Helvetica Neue or Arial.
 - `images/`:
   - `banner.jpg`: project collage, the photo strip on the landing page
@@ -31,7 +39,7 @@ Design rules (palette, type, waveforms, components) are in `DESIGN.md`. Read it 
   - `profiles/` (people), `partners/` (Contact logos)
   - `logos/`: `mica-lab-grey.svg` (nav and footer), `uwe-bristol.svg`, `ukri-grey.svg`, `bridge-studios-grey.svg`
   - `waves/page-band.svg`: the faint rose waveform used as a background. It uses `preserveAspectRatio="none"` plus `vector-effect:non-scaling-stroke`, so it stretches to any box with thin lines
-  - `diagrams/entangled5-light.svg`: the Creativity/Materials/Technology/People/Place diagram on Outside-In (simplified to ~50 KB)
+  - `diagrams/entangled5-light.svg`: the Creativity/Materials/Technology/People/Place diagram on the Outside-In project page (simplified to ~50 KB)
   - `micalogos/`, `jobs/`, `swish.jpg`, `chags.jpg`: older or unused images
 - `slideAssets/`: the slide template (`mica-lab-template.pptx`) and its SVGs. Reference material only: **don't deploy it**, and it's not linked from the site. Never reuse its text: slogans, headings and figures in the deck are placeholders, not real lab copy.
 - `audio/`: audio description for the Outside-In video. The MP3 is played; `AudioDescriptionText.docx` is its text, which is also inline on the page in a `<details>` box.
@@ -76,6 +84,7 @@ The h1 is the page title, so sections use `h2`. When adding a page, copy an exis
 
   For NIME papers, link the permanent nime.org page (`nime.org/proc/…`, `/proc_music/…` for music, `/proc_alt/…` for alt.NIME), not the yearly conference site.
 - **Labels** go in `<div class="labels">` after `.ve`, as outline pills: `<span class="badge"><i class="fa-solid fa-award" aria-hidden="true"></i>Honourable Mention</span>`. Use `fa-music` for "Composition", `fa-award` for awards ("Honourable Mention" in UK spelling, "Best Paper Nominee"), and `fa-book-open` for "Cover article".
+- **Projects**: `data-proj` holds project tags (space separated), which fill each project page's Publications list. Currently only `outside-in`.
 - **Themes**: `data-t` holds the theme tags, which drive the filter buttons: `acc` Accessibility, `ges` Gesture, `des` Design and Making, `ai` AI (includes evolutionary computation), `son` Sonification, `imm` Immersion (includes robotics), `aud` Audio, `comp` Composition. The counts on the filter buttons are hard-coded, so update them when you add a paper.
 - The thumbnail link is deliberately `aria-hidden` with `alt=""` because it repeats the title link next to it. Keep that pattern.
 - `025` has only a PNG on purpose: that entry links to pushturnmove.com.

@@ -4,7 +4,7 @@
 <title>mica lab</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/theme.css?v=12">
+<link rel="stylesheet" href="/css/theme.css?v=13">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +12,7 @@
 <script src="/nav.js"></script>
 <script src="/footer.js"></script>
 <script src="/previews.js"></script>
+<script src="/projects/projects.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -38,11 +39,11 @@
   <section class="preview">
     <div class="pvwave" style="background-image:url(/images/waves/wave-divider.svg)"></div>
     <div class="wrap">
-      <div class="pvhead"><h2>Outside-In</h2></div>
-      <div class="pv-oi pvclip" style="--pv-h:430px; --pv-h-sm:470px" data-from="/outside-in/" data-pick="sub intro diagram">
-        <p>Outside Interactions is a UKRI Future Leaders Fellowship exploring new ways to co-design digital musical instruments with disabled musicians.</p>
+      <div class="pvhead"><h2>Projects</h2></div>
+      <div class="pvclip" style="--pv-h:520px; --pv-h-sm:460px" data-from="/projects/" data-pick="tiles">
+        <p>Our projects, starting with Outside Interactions, a UKRI Future Leaders Fellowship.</p>
       </div>
-      <p class="pvmore"><a href="/outside-in/">About the project <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
+      <p class="pvmore"><a href="/projects/">All projects <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
     </div>
   </section>
 
@@ -50,7 +51,7 @@
     <div class="pvwave" style="background-image:url(/images/waves/wave-card.svg)"></div>
     <div class="wrap">
       <div class="pvhead"><h2>People</h2></div>
-      <div class="pvclip" style="--pv-h:400px; --pv-h-sm:660px" data-from="/people/" data-pick="team phd">
+      <div class="pvclip" style="--pv-h:400px; --pv-h-sm:660px" data-from="/people/" data-pick="team">
         <p>The lab team, PhD students and alumni.</p>
       </div>
       <p class="pvmore"><a href="/people/">Everyone in the lab <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
@@ -79,6 +80,11 @@
     </div>
   </section>
 </main>
+
+<dialog class="pop" aria-label="Project">
+  <button class="pop-close" type="button" aria-label="Close"><i class="fa fa-xmark" aria-hidden="true"></i></button>
+  <div class="pop-body"></div>
+</dialog>
 
 <div id="site-footer"></div>
 </body>

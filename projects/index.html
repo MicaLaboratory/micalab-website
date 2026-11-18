@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>mica lab: Projects</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/theme.css?v=13">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+<script src="/nav.js"></script>
+<script src="/footer.js"></script>
+<script src="/previews.js"></script>
+<script src="/projects/projects.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="site-nav"></div>
+
+<main id="main">
+  <div class="pagewave"></div>
+
+  <header class="titleband blush" style="padding-bottom:28px">
+    <div class="wrap"><h1>Projects</h1></div>
+  </header>
+
+  <section style="padding-top:32px">
+    <div class="wrap">
+      <!-- A tile that links to a project page opens it as a pop-up (projects.js).
+           A placeholder is a button with data-soon until its page exists. -->
+      <ul class="ptiles" data-preview="tiles">
+        <li>
+          <a class="ptile" href="/projects/outside-in/">
+            <img src="/images/projects/outside-in.jpg" alt="">
+            <span class="pname">Outside Interactions</span>
+          </a>
+        </li>
+        <li>
+          <button class="ptile soon" type="button" data-soon style="--wave:url(/images/waves/wave-card.svg)">
+            <span class="pname">Project 2</span><span class="psoon" aria-hidden="true">Coming soon</span>
+          </button>
+        </li>
+        <li>
+          <button class="ptile soon" type="button" data-soon style="--wave:url(/images/waves/wave-quote.svg)">
+            <span class="pname">Project 3</span><span class="psoon" aria-hidden="true">Coming soon</span>
+          </button>
+        </li>
+        <li>
+          <button class="ptile soon" type="button" data-soon style="--wave:url(/images/waves/wave-panel.svg)">
+            <span class="pname">Project 4</span><span class="psoon" aria-hidden="true">Coming soon</span>
+          </button>
+        </li>
+        <li>
+          <button class="ptile soon" type="button" data-soon style="--wave:url(/images/waves/wave-divider.svg)">
+            <span class="pname">Project 5</span><span class="psoon" aria-hidden="true">Coming soon</span>
+          </button>
+        </li>
+        <li>
+          <button class="ptile soon" type="button" data-soon style="--wave:url(/images/waves/page-band.svg)">
+            <span class="pname">Project 6</span><span class="psoon" aria-hidden="true">Coming soon</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<dialog class="pop" aria-label="Project">
+  <button class="pop-close" type="button" aria-label="Close"><i class="fa fa-xmark" aria-hidden="true"></i></button>
+  <div class="pop-body"></div>
+</dialog>
+
+<div id="site-footer"></div>
+</body>
+</html>

@@ -6,6 +6,9 @@
   --rose: #A8505A;
   --pink: #F5C4C4;
   --blush: #FCEDED;
+  /* Laid over blush bands: pale where the text sits on the left, warming to pink on the right.
+     It runs across, not down, so stacked bands line up without a seam. */
+  --blush-tint: linear-gradient(to right, rgba(245, 196, 196, 0) 25%, rgba(245, 196, 196, .4));
   --line: #F0DCDC;
   --gutter: max(16px, 3vw);
   --head: "Century Gothic", "Questrial", sans-serif;
@@ -44,8 +47,8 @@ img { max-width: 100%; display: block; }
 .wrap { max-width: calc(1140px + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); } /* 1140px content column, centred */
 .blush { background: var(--blush); }
 /* Bands are translucent with a soft fade, so the background waveform shows through */
-main .blush { background: linear-gradient(to bottom, rgba(252, 237, 237, .8), rgba(252, 237, 237, .45)); }
-main .titleband.blush { background: rgba(252, 237, 237, .8); } /* flat, so it joins the band below without a seam */
+main .blush { background: var(--blush-tint), linear-gradient(to bottom, rgba(252, 237, 237, .8), rgba(252, 237, 237, .45)); }
+main .titleband.blush { background: var(--blush-tint), rgba(252, 237, 237, .8); } /* no top-to-bottom fade, so it joins the band below without a seam */
 
 .sr-only {
   position: absolute; width: 1px; height: 1px; overflow: hidden;
@@ -161,10 +164,8 @@ section.above { z-index: 1; }
 }
 .pvmore a:hover { background: var(--rose); color: #fff; }
 .pvmore a i { font-size: .85em; margin-left: 4px; }
-.pv-oi .sub { font-family: var(--head); color: var(--charcoal); font-size: 1.15rem; margin: 0 0 .6em; }
-.pv-oi .lede-big { max-width: 52em; margin: 0 0 1.4em; }
-.pv-oi .diagram { max-width: 900px; margin: 0 auto; }
 .preview .logos { margin-top: 24px; }
+.preview .ptiles { padding-top: 4px; } /* room for the focus ring */
 
 /* ---------- People ---------- */
 .people {
@@ -190,10 +191,7 @@ section.above { z-index: 1; }
   .people > div, .people.small > div { width: calc((100% - 20px) / 2); }
 }
 
-/* ---------- Outside-In ---------- */
-.oihead { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.oihead .ukri { height: 56px; width: auto; }
-.oihead h1 i { margin-right: .07em; } /* stop the italic "In" crowding the "t" */
+/* ---------- Video with audio description (project pages) ---------- */
 .video { max-width: 1000px; margin: 0 auto; }
 .video .frame { position: relative; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -209,6 +207,123 @@ details.adtext p { margin: .8em 0 0; }
 .prose { max-width: 820px; margin: 0 auto; }
 .diagram { max-width: 1100px; margin: 0 auto; }
 .diagram img { width: 100%; }
+
+/* ---------- Projects ---------- */
+/* Grid of square tiles; the name shows on hover or focus (always on touch screens) */
+.ptiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 900px) { .ptiles { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .ptiles { gap: 12px; } }
+.ptile {
+  position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: hidden;
+  padding: 0; border: 0; border-radius: 12px; background: #fff; cursor: pointer; font: inherit;
+}
+.ptile img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: grayscale(.55) contrast(.9) brightness(1.05); transition: transform .4s, filter .4s;
+}
+/* Toned like the landing banner: part greyscale under a pink wash; full colour on hover or focus */
+.ptile:has(img)::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: var(--pink); mix-blend-mode: multiply; opacity: .4; transition: opacity .4s;
+}
+.ptile:hover img, .ptile:focus-visible img { filter: none; }
+.ptile:hover::after, .ptile:focus-visible::after { opacity: 0; }
+.ptile.soon { background: linear-gradient(135deg, rgba(245, 196, 196, 0) 30%, rgba(245, 196, 196, .45)), var(--blush); border: 1px solid var(--line); }
+.ptile.soon::before { /* the slide waveform, faint */
+  content: ""; position: absolute; inset: 0; background: var(--wave) no-repeat center / 100% 100%; opacity: .3;
+}
+.ptile .psoon {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--head); color: var(--grey); font-size: 1.05rem;
+}
+.ptile .pname {
+  position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center;
+  background: rgba(61, 59, 62, .62); color: #fff; font-family: var(--head); font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  opacity: 0; transition: opacity .25s; z-index: 1;
+}
+.ptile:hover .pname, .ptile:focus-visible .pname { opacity: 1; }
+.ptile:hover img, .ptile:focus-visible img { transform: scale(1.04); }
+.ptile:focus-visible { outline: 3px solid var(--rose); outline-offset: 3px; }
+@media (hover: none) {
+  .ptile .pname { opacity: 1; inset: auto 0 0 0; padding: 10px 12px; font-size: 1rem; }
+  .ptile.soon .pname { background: rgba(61, 59, 62, .45); }
+}
+@media (prefers-reduced-motion: reduce) { .ptile img, .ptile .pname, .ptile::after { transition: none; } }
+
+/* A project page: also what the pop-up shows */
+.projhead h1 i, .projhead h2 i { margin-right: .07em; } /* stop the italic "In" crowding the "t" */
+.projhead .back { margin-bottom: 10px; }
+/* Title on the left, a bold "Read more" button on the right (it drops below on narrow screens) */
+.projtitle { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px 24px; flex-wrap: wrap; }
+/* Right of the title: Read more (pop-up only) above the funder's logo */
+.projside { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; }
+.funderlogo { height: 56px; width: auto; }
+@media (max-width: 600px) { .projside { flex-direction: row; align-items: center; } .funderlogo { height: 44px; } }
+/* In the pop-up: title, then the logo centred in the space, then Read more on the right */
+.pop .projtitle { align-items: center; }
+.pop .projside { flex: 1; flex-direction: row-reverse; align-items: center; }
+.pop .funderlogo { margin: 0 auto; }
+@media (max-width: 600px) { .pop .projside { flex: none; flex-direction: row; } .pop .funderlogo { margin: 0; } }
+.readmore { display: none; } /* the full page is already here */
+.pop .readmore {
+  flex: none; display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 22px; border: 2px solid var(--rose); border-radius: 999px; background: var(--rose); color: #fff;
+  font-family: var(--head); font-size: 17px; font-weight: 700; text-decoration: none;
+}
+.pop .readmore:hover, .pop .readmore:focus-visible { background: #fff; color: var(--rose); }
+.readmore i { font-size: .85em; }
+.credits { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 48px; max-width: 820px; margin: 0 auto; }
+.credits h2, .credits h3 { text-align: left; margin: 0 0 .5em; font-size: 1.35rem; }
+.credits ul { list-style: none; margin: 0; padding: 0; }
+.credits li { margin: 0 0 10px; }
+/* Each collaborator or funder: a small logo tile, then the name */
+.credits li a { display: inline-flex; align-items: center; gap: 14px; text-decoration: none; }
+.credits li a:hover { text-decoration: underline; }
+.clogo {
+  flex: none; display: flex; align-items: center; justify-content: center; width: 84px; height: 48px; padding: 6px 10px;
+  background: #fff; border: 1px solid var(--line); border-radius: 10px;
+}
+.clogo img { max-width: 100%; max-height: 100%; object-fit: contain; filter: grayscale(1); opacity: .8; transition: filter .2s, opacity .2s; }
+.clogo img.pale { filter: url(#ink); }
+.credits li a:hover .clogo, .credits li a:focus-visible .clogo { border-color: var(--rose); }
+.credits li a:hover img, .credits li a:focus-visible img { filter: none; opacity: 1; }
+.credits .grant { display: block; margin: 4px 0 0 98px; font-size: 14px; }
+@media (max-width: 600px) { .credits { grid-template-columns: 1fr; } }
+.projpubs { max-width: 1000px; margin: 0 auto; }
+
+/* The pop-up: the copied blocks stack as alternating blush and white bands */
+html:has(.pop[open]) { overflow: hidden; }
+.pop {
+  width: min(1000px, calc(100% - 32px)); max-width: none; max-height: calc(100% - 48px); padding: 0;
+  border: 0; border-radius: 16px; background: #fff; color: var(--grey);
+  box-shadow: 0 20px 60px rgba(61, 59, 62, .3); overflow-y: auto; overscroll-behavior: contain;
+}
+.pop::backdrop { background: rgba(61, 59, 62, .55); }
+.pop-close {
+  position: sticky; top: 12px; float: right; margin: 12px 12px -52px 0; z-index: 2;
+  width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--rose);
+  background: #fff; color: var(--rose); font-size: 1.1rem; cursor: pointer;
+}
+.pop-close:hover, .pop-close:focus-visible { background: var(--rose); color: #fff; }
+.pop-close:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px; }
+.pop-body > [data-from] > * { padding-left: 40px; padding-right: 40px; }
+.pop-body .projhead { background: var(--blush-tint), var(--blush); padding-top: 28px; padding-bottom: 20px; padding-right: 72px; }
+.pop-body .projhead h2 { margin: 0; text-align: left; font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
+.pop-body .video { background: var(--blush-tint), var(--blush); padding-bottom: 28px; max-width: none; }
+.pop-body .prose { max-width: none; padding-top: 28px; padding-bottom: 12px; }
+.pop-body .lede-big { margin: 0 0 .6em; max-width: none; }
+.pop-body .credits { max-width: none; background: var(--blush-tint), var(--blush); padding-top: 24px; padding-bottom: 24px; }
+.pop-body > div > :last-child { padding-top: 24px; padding-bottom: 32px; }
+.pop-body > div > :last-child > h3 { text-align: left; margin: 0 0 .3em; font-size: 1.35rem; }
+.pop-body .projpubs { padding: 0; max-width: none; }
+.pop-wait, .pop-soon { padding: 40px; margin: 0; }
+.pop-soon h2 { text-align: left; margin-top: 0; }
+@media (max-width: 600px) {
+  .pop { width: 100%; max-height: 100%; height: 100%; border-radius: 0; }
+  .pop-body > [data-from] > * { padding-left: 16px; padding-right: 16px; }
+  .pop-body .projhead { padding-right: 64px; }
+  .pop-wait, .pop-soon { padding: 56px 16px 24px; }
+}
 
 /* ---------- Publications ---------- */
 .tools {

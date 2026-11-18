@@ -75,7 +75,7 @@ Charcoal and white carry most of the weight. Pink is the main accent, and rose i
 - Headings: `"Century Gothic", "Questrial", sans-serif`. Century Gothic is installed on Windows and on Macs with Office. Questrial (Google Fonts) is the closest free fallback.
 - Body font, as built: **Corbel**, matching the slides: `Corbel, "Segoe UI", "Helvetica Neue", Arial, sans-serif`. Atkinson Hyperlegible was compared and rejected, mainly because of its numerals. Corbel only exists on Windows and on Macs with Office, so many visitors see the fallback.
 - Lab name: always lowercase, "mica lab", in copy, titles and alt text.
-- Section headings: title case ("PhD Students", "Supporters and Partners").
+- Section headings: title case ("Supporters and Partners").
 - Suggested scale, from the slides' ratios to an 18px body:
 
 | Web element | Slide equivalent | Size |
@@ -152,6 +152,7 @@ The waveform always sits on the right or bottom edge and bleeds off the slide. I
 
 - As built: one centred content column of 1140px (the common Bootstrap-style width), with side padding of about 3% (minimum 16px). Coloured bands and waveforms run full width; content stays in the column.
 - Section spacing: alternate white and blush (or charcoal) bands, not rules. Vertical padding about 64px on desktop and 40px on mobile.
+- Blush bands aren't flat. They fade a little from top to bottom (translucent, so the page waveform shows through), and `--blush-tint` warms them sideways from pale blush on the left to pink on the right. The tint runs across, not down, so stacked bands line up without a seam. Use `var(--blush-tint), var(--blush)` for any new blush band.
 - Grids:
   - 4 columns: 2 under 900px, 1 under 600px.
   - 3 columns: 1 under 600px.
